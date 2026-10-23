@@ -1,0 +1,55 @@
+{
+  "name": "COHESION / Ant Design",
+  "version": "2.0.0",
+  "foundation": {
+    "package": "antd",
+    "version": "6.6.6",
+    "documentation": "https://ant.design/docs/react/customize-theme/",
+    "algorithms": ["defaultAlgorithm", "darkAlgorithm", "compactAlgorithm"],
+    "description": "Ant Design 官方预设是基础。字号、间距、圆角、控件高度、阴影、字体与动效沿用当前锁定版本；不另建平行数值体系。"
+  },
+  "brand": {
+    "logo": {
+      "green": "#42A136",
+      "lime": "#B1C640",
+      "cyan": "#17A4BD"
+    },
+    "description": "三个 Logo 资产色固定；Logo 颜色不承担正文、链接或操作状态。"
+  },
+  "token": {
+    "colorPrimary": "#167C4B",
+    "colorLink": "#167C4B"
+  },
+  "modeToken": {
+    "light": {},
+    "dark": { "colorPrimary": "#5CB889", "colorLink": "#5CB889" }
+  },
+  "components": {},
+  "accessibility": {
+    "minimumTextContrast": 4.5,
+    "minimumFocusContrast": 3,
+    "disabledExcluded": true,
+    "algorithm": "cohesionAccessibilityAlgorithm",
+    "description": "在官方算法之后，只对未达标的可读正文、占位符、链接、主色文本、主按钮悬停、危险实心按钮与主色浅填充作最小对比度修正。暗色品牌种子更明亮，Button.primaryColor 使用官方暗容器色保证按钮文字清晰。修正值由同一算法推导并导出，不手写第二套色阶。禁用内容与装饰性色不按正文阈值判错。",
+    "textTokens": [
+      "colorTextTertiary",
+      "colorPrimaryText", "colorPrimaryTextHover", "colorPrimaryTextActive",
+      "colorLink", "colorLinkHover", "colorLinkActive",
+      "colorSuccessText", "colorSuccessTextHover", "colorSuccessTextActive",
+      "colorWarningText", "colorWarningTextHover", "colorWarningTextActive",
+      "colorErrorText", "colorErrorTextHover", "colorErrorTextActive",
+      "colorInfoText", "colorInfoTextHover", "colorInfoTextActive"
+    ],
+    "solidButtonTokens": [
+      "colorPrimary", "colorPrimaryHover", "colorPrimaryActive",
+      "colorError", "colorErrorHover", "colorErrorActive"
+    ],
+    "readableFillTokens": ["colorPrimaryBg", "colorPrimaryBgHover"]
+  },
+  "modes": {
+    "light": { "theme": "light", "density": "comfortable" },
+    "dark": { "theme": "dark", "density": "comfortable" },
+    "compact": { "theme": "light", "density": "compact" },
+    "darkCompact": { "theme": "dark", "density": "compact" }
+  }
+}

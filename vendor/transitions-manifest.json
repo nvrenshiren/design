@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "accordion",
+    "name": "Accordion expand",
+    "html": "<div class=\"t-acc\" data-open=\"false\">\n  <button class=\"t-acc-head\" aria-expanded=\"false\">\n    Title\n    <span class=\"t-acc-chevron\">\n      <svg viewBox=\"0 0 16 16\"><path d=\"M4 6.5L8 10.5L12 6.5\"/></svg>\n    </span>\n  </button>\n  <div class=\"t-acc-panel\"><div class=\"t-acc-panel-inner\"> … </div></div>\n</div>"
+  },
+  {
+    "slug": "avatar-group-hover",
+    "name": "Avatar group hover",
+    "html": "<!-- Apply .t-avatar to each item in your group (avatar,\n     chip, badge, button — anything). Bring your own size,\n     shape, and stacking; this stylesheet only owns the\n     hover transform + transition. -->\n<div class=\"t-avatar-group\">\n  <div class=\"t-avatar\"><!-- your item --></div>\n  <div class=\"t-avatar\"><!-- your item --></div>\n  <!-- … -->\n</div>"
+  },
+  {
+    "slug": "card-resize",
+    "name": "Card resize",
+    "html": "<div class=\"t-resize\">…</div>"
+  },
+  {
+    "slug": "card-tilt",
+    "name": "Card hover tilt",
+    "html": "<div class=\"t-tilt\">                <!-- flat hit area -->\n  <div class=\"t-tilt-card\">       <!-- the element that tilts -->\n    … card content …\n    <div class=\"t-tilt-glare\"></div>\n  </div>\n</div>"
+  },
+  {
+    "slug": "checkbox-check",
+    "name": "Checkbox check",
+    "html": "<button class=\"t-check\" role=\"checkbox\" aria-checked=\"false\">\n  <svg viewBox=\"0 0 10.1668 10.1668\">\n    <path d=\"M1 5.52L3.92 9.17L9.17 1\"/>\n  </svg>\n</button>"
+  },
+  {
+    "slug": "error-state-shake",
+    "name": "Error state shake",
+    "html": "<!-- Apply .t-input-wrap to your wrapper, .t-input to the\n     element that should shake (your input field, its\n     bordered wrapper — whatever owns the visible border),\n     and .t-error-msg to the message you want to reveal.\n     Bring your own sizing, padding, border colors, and\n     typography. -->\n<div class=\"t-input-wrap\">\n  <div class=\"t-input\">\n    <input type=\"text\">\n  </div>\n  <p class=\"t-error-msg\">Please enter a valid email.</p>\n</div>"
+  },
+  {
+    "slug": "icon-swap",
+    "name": "Icon swap",
+    "html": "<div class=\"t-icon-swap\" data-state=\"a\">\n  <span class=\"t-icon\" data-icon=\"a\">…</span>\n  <span class=\"t-icon\" data-icon=\"b\">…</span>\n</div>"
+  },
+  {
+    "slug": "input-clear-dissolve",
+    "name": "Input clear with dissolve",
+    "html": "<!-- Drop .t-clear on a wrapper that you've sized like an\n     input field (positioning, padding, border, radius are\n     yours). Inside it stack a real <input>, a mirror that\n     visualizes the value, a fake placeholder for the new\n     empty state, and a glow layer that gets the per-word\n     radial-gradient stack written into it from JS. -->\n<div class=\"t-clear has-value\">\n  <input type=\"text\" value=\"…\" />\n  <div class=\"t-clear-mirror\" aria-hidden=\"true\">…</div>\n  <div class=\"t-clear-placeholder\" aria-hidden=\"true\">Search</div>\n  <div class=\"t-clear-glow\" aria-hidden=\"true\"></div>\n  <button class=\"t-clear-btn\" aria-label=\"Clear\">…</button>\n</div>"
+  },
+  {
+    "slug": "learn-more-hover",
+    "name": "Learn more hover",
+    "html": "<button class=\"t-learn\">Learn more\n  <span class=\"t-learn-chevron\"><svg>\n    <path class=\"t-learn-arm t-learn-arm-top\" d=\"M6 4L10 8\"/>\n    <path class=\"t-learn-arm t-learn-arm-bot\" d=\"M10 8L6 12\"/>\n  </svg></span>\n</button>"
+  },
+  {
+    "slug": "like-button",
+    "name": "Like button",
+    "html": "<button class=\"t-like\" data-liked=\"false\">\n  <span class=\"t-like-icon\"><svg class=\"t-like-heart\">…</svg></span>\n  <span class=\"t-like-particles\"><i></i>…8 total…<i></i></span>\n  Like\n</button>"
+  },
+  {
+    "slug": "menu-dropdown",
+    "name": "Menu dropdown",
+    "html": "<div class=\"t-dropdown\" data-origin=\"top-center\">\n  <!-- your menu contents -->\n</div>"
+  },
+  {
+    "slug": "modal",
+    "name": "Modal open / close",
+    "html": "<div class=\"t-modal\" role=\"dialog\">…</div>"
+  },
+  {
+    "slug": "notification-badge",
+    "name": "Notification badge",
+    "html": "<!-- Place .t-badge inside your trigger (bell icon, button, etc.). -->\n<!-- The trigger must be position: relative so .t-badge can anchor to it. -->\n<button class=\"your-trigger\" style=\"position: relative\">\n  <!-- your icon / trigger contents -->\n  <span class=\"t-badge\" data-open=\"false\">\n    <span class=\"t-badge-dot\">1</span>\n  </span>\n</button>"
+  },
+  {
+    "slug": "number-pop-in",
+    "name": "Number pop-in",
+    "html": "<span class=\"t-digit-group is-animating\">\n  <span class=\"t-digit\">1</span>\n  <span class=\"t-digit\">2</span>\n  <span class=\"t-digit\" data-stagger=\"1\">.</span>\n  <span class=\"t-digit\" data-stagger=\"2\">3</span>\n</span>"
+  },
+  {
+    "slug": "page-side-by-side",
+    "name": "Page side-by-side",
+    "html": "<div class=\"t-page-slide\" data-page=\"1\">\n  <section class=\"t-page\" data-page-id=\"1\">…</section>\n  <section class=\"t-page\" data-page-id=\"2\">…</section>\n</div>"
+  },
+  {
+    "slug": "panel-reveal",
+    "name": "Panel reveal",
+    "html": "<div class=\"t-panel-slide\" data-open=\"false\">\n  <!-- your panel contents -->\n</div>"
+  },
+  {
+    "slug": "plus-menu-morph",
+    "name": "Plus to menu morph",
+    "html": "<div class=\"t-morph\" data-open=\"false\">\n  <div class=\"t-morph-menu\"> … menu items … </div>\n  <button class=\"t-morph-plus\" aria-expanded=\"false\">+</button>\n</div>"
+  },
+  {
+    "slug": "shimmer-text",
+    "name": "Shimmer text",
+    "html": "<!-- Duplicate the visible string into data-text so the\n     ::before layer can mask the gradient onto the same\n     glyphs. Keep them in sync if the text changes. -->\n<span class=\"t-shimmer\" data-text=\"Planning next moves\">\n  Planning next moves\n</span>"
+  },
+  {
+    "slug": "skeleton-reveal",
+    "name": "Skeleton loader and reveal",
+    "html": "<div class=\"t-skel\" data-state=\"loading\">\n  <div class=\"t-skel-skeleton is-pulsing\">…</div>\n  <div class=\"t-skel-content\">…</div>\n</div>"
+  },
+  {
+    "slug": "spinning-counter",
+    "name": "Spinning counter",
+    "html": "<div class=\"t-reel\"></div>  <!-- reels built in JS -->"
+  },
+  {
+    "slug": "success-check",
+    "name": "Success check",
+    "html": "<!-- Wrap your icon (SVG, image, anything) in .t-success-check.\n     The wrapper drives fade + rotate + blur + Y-bob; if your\n     icon is an SVG <path>, it gets the stroke-draw animation.\n     Bring your own icon size / colors. -->\n<span class=\"t-success-check\" data-state=\"out\" aria-hidden=\"true\">\n  <svg viewBox=\"0 0 48 48\" fill=\"none\">\n    <!-- your icon path(s) here -->\n  </svg>\n</span>"
+  },
+  {
+    "slug": "tabs-sliding",
+    "name": "Tabs sliding",
+    "html": "<div class=\"t-tabs\" role=\"tablist\">\n  <span class=\"t-tabs-pill\" aria-hidden=\"true\"></span>\n  <button class=\"t-tab\" role=\"tab\" aria-selected=\"true\">Plan</button>\n  <button class=\"t-tab\" role=\"tab\" aria-selected=\"false\">Debug</button>\n  <button class=\"t-tab\" role=\"tab\" aria-selected=\"false\">Ask</button>\n</div>"
+  },
+  {
+    "slug": "text-states-swap",
+    "name": "Text states swap",
+    "html": "<span class=\"t-text-swap\">Processing…</span>"
+  },
+  {
+    "slug": "texts-reveal",
+    "name": "Texts reveal",
+    "html": "<div class=\"t-stagger\">\n  <strong class=\"t-stagger-line t-stagger-line--1\">…</strong>\n  <span class=\"t-stagger-line t-stagger-line--2\">…</span>\n</div>"
+  },
+  {
+    "slug": "toast",
+    "name": "Toast open / close",
+    "html": "<div class=\"t-toast\" data-open=\"false\"> … </div>"
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "html": "<button class=\"t-toggle\" role=\"switch\" data-on=\"false\">\n  <span class=\"t-toggle-thumb\"></span>\n</button>"
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip open/close",
+    "html": "<span class=\"t-tt-wrap\">\n  <button class=\"t-tt-trigger\" aria-describedby=\"tt-1\">…</button>\n  <span class=\"t-tt\" id=\"tt-1\" role=\"tooltip\">Tooltip text</span>\n</span>"
+  }
+]

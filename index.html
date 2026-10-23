@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="doc:[--ds-bg:var(--ant-token-color-bg-container,_#fff)] doc:[--ds-canvas:var(--ant-token-color-bg-layout,_#f5f5f5)] doc:[--ds-ink:var(--ant-token-color-text,_rgba(0,0,0,.88))] doc:[--ds-muted:var(--ant-token-color-text-secondary,_rgba(0,0,0,.65))] doc:[--ds-line:var(--ant-token-color-border-secondary,_#f0f0f0)] doc:[--ds-border:var(--ant-token-color-border,_#d9d9d9)] doc:[--ds-primary:var(--ant-token-color-primary,_#167c4b)] doc:[--ds-primary-bg:var(--ant-token-color-primary-bg,_#edf7f0)] doc:[--ds-strong:var(--ant-token-font-weight-strong,_600)] doc:[font-synthesis:none] doc:[color-scheme:light] doc:[&[data-theme='dark']]:[color-scheme:dark] doc:[:where(&)_*]:[box-sizing:border-box] doc:[:where(&)_button]:[-webkit-tap-highlight-color:transparent] doc:[:where(&)_button]:[touch-action:manipulation] doc:[:where(&)_input]:[-webkit-tap-highlight-color:transparent] doc:[:where(&)_input]:[touch-action:manipulation] doc:[:where(&)_a]:[-webkit-tap-highlight-color:transparent] doc:[:where(&)_a]:[touch-action:manipulation] doc:[:where(&)_input]:[caret-color:var(--ds-primary)] doc:[:where(&)_textarea]:[caret-color:var(--ds-primary)] doc:[scrollbar-color:var(--ds-border)_var(--ds-bg)] doc:[&[data-motion='reduced']_*]:[animation-play-state:paused]! doc:[&[data-motion='reduced']_*]:[animation-duration:0s]! doc:[&[data-motion='reduced']_*]:[animation-delay:0s]! doc:[&[data-motion='reduced']_*]:[transition:none]! doc:[&[data-motion='reduced']_*]:[scroll-behavior:auto]! doc:[&[data-motion='reduced']_*::before]:[animation-play-state:paused]! doc:[&[data-motion='reduced']_*::before]:[animation-duration:0s]! doc:[&[data-motion='reduced']_*::before]:[animation-delay:0s]! doc:[&[data-motion='reduced']_*::before]:[transition:none]! doc:[&[data-motion='reduced']_*::before]:[scroll-behavior:auto]! doc:[&[data-motion='reduced']_*::after]:[animation-play-state:paused]! doc:[&[data-motion='reduced']_*::after]:[animation-duration:0s]! doc:[&[data-motion='reduced']_*::after]:[animation-delay:0s]! doc:[&[data-motion='reduced']_*::after]:[transition:none]! doc:[&[data-motion='reduced']_*::after]:[scroll-behavior:auto]! doc:[:where(&)_::selection]:[background:var(--ant-token-color-primary-bg-hover)] doc:[:where(&)_::selection]:[color:var(--ds-ink)] doc:[:where(&)_:focus-visible]:[outline:2px_solid_var(--ds-primary)] doc:[:where(&)_:focus-visible]:[outline-offset:3px] doc:[:where(&)_a]:[color:var(--ant-token-color-link)] doc:[:where(&)_a]:[text-underline-offset:3px] doc:[:where(&)_svg]:[flex-shrink:0] doc:[:where(&)_code]:[font-family:var(--ant-token-font-family-code)] doc:[:where(&)_code]:[font-size:12px] doc:[:where(&)_pre]:[font-family:var(--ant-token-font-family-code)] doc:[:where(&)_pre]:[font-size:12px] doc:[:where(&)_kbd]:[font-family:var(--ant-token-font-family-code)] doc:[:where(&)_kbd]:[font-size:12px] doc:[:where(&)_code]:[overflow-wrap:anywhere] doc:[:where(&)_pre]:[margin:0] doc:[:where(&)_pre]:[white-space:pre-wrap] doc:[:where(&)_pre]:[overflow-wrap:anywhere] doc:[:where(&)_h1]:[margin-top:0] doc:[:where(&)_h2]:[margin-top:0] doc:[:where(&)_h3]:[margin-top:0] doc:[:where(&)_h4]:[margin-top:0] doc:[:where(&)_p]:[margin-top:0] doc:[:where(&)_h1]:[color:inherit] doc:[:where(&)_h1]:[text-wrap:balance] doc:[:where(&)_h2]:[color:inherit] doc:[:where(&)_h2]:[text-wrap:balance] doc:[:where(&)_h3]:[color:inherit] doc:[:where(&)_h3]:[text-wrap:balance] doc:[:where(&)_h4]:[color:inherit] doc:[:where(&)_h4]:[text-wrap:balance] doc:motion-reduce:[scroll-behavior:auto]" lang="zh-CN" data-theme="light" data-density="comfortable">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="COHESION 逐科设计系统。以成熟的设计基础、可复用组件和真实产品模式，连接内容、工具与服务。">
+<title>COHESION 逐科设计系统</title>
+<script>
+(() => {
+ let choice='system',density='comfortable';
+ try { choice=localStorage.getItem('zk-theme')||'system';density=localStorage.getItem('zk-density')||density; } catch (_) {}
+ try { if(choice==='system')choice=document.cookie.match(/(?:^|;\s*)zk-theme=(light|dark)(?:;|$)/)?.[1]||choice; } catch (_) {}
+ document.documentElement.dataset.theme=['light','dark'].includes(choice)?choice:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ document.documentElement.dataset.density=density==='compact'?'compact':'comfortable';
+})();
+</script>
+<link rel="stylesheet" href="./tokens/tokens.css">
+<link rel="stylesheet" href="./preview/app.css">
+<link rel="stylesheet" href="./preview/tailwind.generated.css">
+<link rel="stylesheet" href="./dist/css/cohesion-base.css">
+<script defer src="./vendor/react.production.min.js"></script>
+<script defer src="./vendor/react-dom.production.min.js"></script>
+<script defer src="./vendor/border-beam.js"></script>
+<script defer src="./vendor/orbs-engine.js"></script>
+<script defer src="./vendor/orbs-presets.js"></script>
+<script defer src="./preview/app.js"></script>
+</head>
+<body class="doc:[margin:0] doc:[background:var(--ds-bg)] doc:[color:var(--ds-ink)] doc:[font-family:var(--ant-token-font-family)] doc:[font-size:var(--ant-token-font-size,_14px)] doc:[line-height:var(--ant-token-line-height,_1.57143)] doc:[-webkit-font-smoothing:antialiased]">
+<div id="root"><div class="ds-bootstrap tw:max-w-[620px] tw:m-[20vh_auto] tw:p-8 tw:text-base tw:leading-[1.8]">正在加载 COHESION 设计系统…<br><a href="./README.md">阅读设计规范</a></div></div>
+<noscript><p class="ds-bootstrap tw:max-w-[620px] tw:m-[20vh_auto] tw:p-8 tw:text-base tw:leading-[1.8]">此交互预览需要 JavaScript。你仍可阅读 <a href="./README.md">完整设计规范</a>。</p></noscript>
+</body>
+</html>

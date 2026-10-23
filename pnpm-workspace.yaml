@@ -1,0 +1,3 @@
+# Only this pinned build dependency may run its install lifecycle script.
+allowBuilds:
+  esbuild@0.28.2: true

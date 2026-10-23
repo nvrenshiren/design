@@ -1,0 +1,6 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw) important;
+@source "./src";
+@source "../index.html";
+@plugin "../theme/tailwind-breakpoints.mjs";

@@ -1,0 +1,6 @@
+@import "tailwindcss/theme.css" prefix(mr);
+@import "tailwindcss/utilities.css" prefix(mr);
+@source "./transitions";
+@source "../preview/src/views/MotionReferences.jsx";
+@plugin "./motion-tailwind-plugin.mjs";
+@plugin "../theme/tailwind-breakpoints.mjs";

@@ -1,0 +1,4 @@
+@import "tailwindcss/theme.css" prefix(cb);
+@import "tailwindcss/utilities.css" prefix(cb);
+@source "./cohesion-base.classes.mjs";
+@plugin "../theme/tailwind-breakpoints.mjs";

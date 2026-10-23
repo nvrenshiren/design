@@ -1,0 +1,1254 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T18:40:30.700Z",
+  "title": "Design System: COHESION 逐科",
+  "extensions": {
+    "provenance": {
+      "source": "theme/cohesion-theme.json",
+      "factory": "theme/create-theme.mjs",
+      "snapshot": "tokens/tokens.json",
+      "generator": "scripts/generate-antd-tokens.mjs",
+      "foundation": "antd@6.6.6",
+      "defaultExtractionMode": "light",
+      "defaultExtractionDensity": "comfortable",
+      "modeSnapshotPaths": {
+        "light": "modes.light",
+        "dark": "modes.dark",
+        "compact": "modes.compact",
+        "darkCompact": "modes.darkCompact"
+      },
+      "frontmatterPurpose": "当前快照的常用值提取；修改源配置后重新生成，不作为独立配置入口。",
+      "snippetPurpose": "仅供 shadow DOM 规范面板展示的静态标本；不替代真实 Ant Design 或 shadcn/ui 组件。",
+      "shadcn": {
+        "source": "theme/shadcn-preset.json",
+        "generator": "scripts/generate-shadcn-tokens.mjs",
+        "generatedCss": "preview/shadcn/tokens.css",
+        "componentSource": "preview/shadcn/components/ui",
+        "configuration": "components.json",
+        "registry": "@shadcn",
+        "registryUrl": "https://ui.shadcn.com/r/styles/new-york-v4/{name}.json",
+        "style": "new-york",
+        "resolvedRegistryStyle": "new-york-v4",
+        "baseColor": "neutral",
+        "base": "radix",
+        "cliVersion": "4.22.0",
+        "tailwindVersion": "4.3.3",
+        "modes": [
+          "light",
+          "dark"
+        ],
+        "variablesPerMode": 41,
+        "defaultExtractionMode": "light",
+        "density": "官方默认尺寸；不应用 Ant Design compactAlgorithm。",
+        "distribution": "官方 CLI 安装的源码参考；shadcn/ui 不是独立版本化组件运行时包，当前 dist 不是双体系生产组件包。",
+        "licenseSources": [
+          "preview/shadcn/LICENSE.md",
+          "vendor/shadcn-ui.LICENSE.txt"
+        ],
+        "brandSource": "theme/cohesion-theme.json",
+        "factory": "theme/create-shadcn-theme.mjs",
+        "snapshot": "theme/shadcn-tokens.json",
+        "theme": "COHESION",
+        "foundationVariablesPerMode": 32,
+        "themeBoundary": "官方 Neutral 原值独立保留；当前页面使用共享 COHESION 品牌角色的派生主题。",
+        "officialSourceComponentCount": 27,
+        "addedPrimitives": [
+          "Accordion",
+          "Collapsible",
+          "Avatar",
+          "InputGroup",
+          "Progress",
+          "Sonner"
+        ]
+      }
+    },
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "主操作绿",
+        "sourceToken": "modes.light.tokens.colorPrimary",
+        "tonalRamp": [
+          "#0b5735",
+          "#297a51",
+          "#167c4b",
+          "#2d8558",
+          "#4b966d",
+          "#6ca383",
+          "#ecefed",
+          "#e9f0ec"
+        ],
+        "tonalRampSourceTokens": [
+          "modes.light.tokens.colorPrimaryActive",
+          "modes.light.tokens.colorPrimaryTextHover",
+          "modes.light.tokens.colorPrimary",
+          "modes.light.tokens.colorPrimaryHover",
+          "modes.light.tokens.colorPrimaryBorderHover",
+          "modes.light.tokens.colorPrimaryBorder",
+          "modes.light.tokens.colorPrimaryBg",
+          "modes.light.tokens.colorPrimaryBgHover"
+        ],
+        "purpose": "复用现有派生语义值，按亮度排列；不合成第二套基础色阶。"
+      },
+      "dark-primary": {
+        "role": "primary",
+        "displayName": "深色主操作绿",
+        "sourceToken": "modes.dark.tokens.colorPrimary"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "主要文字",
+        "sourceToken": "modes.light.tokens.colorText"
+      },
+      "container": {
+        "role": "neutral",
+        "displayName": "容器表面",
+        "sourceToken": "modes.light.tokens.colorBgContainer"
+      },
+      "layout": {
+        "role": "neutral",
+        "displayName": "页面底色",
+        "sourceToken": "modes.light.tokens.colorBgLayout"
+      },
+      "elevated": {
+        "role": "neutral",
+        "displayName": "浮层表面",
+        "sourceToken": "modes.light.tokens.colorBgElevated"
+      },
+      "logo-green": {
+        "role": "brand-asset",
+        "displayName": "Logo 逐科绿",
+        "sourceToken": "source.brand.logo.green"
+      },
+      "logo-lime": {
+        "role": "brand-asset",
+        "displayName": "Logo 青柠",
+        "sourceToken": "source.brand.logo.lime"
+      },
+      "logo-cyan": {
+        "role": "brand-asset",
+        "displayName": "Logo 青蓝",
+        "sourceToken": "source.brand.logo.cyan"
+      },
+      "shadcn-background": {
+        "role": "neutral",
+        "displayName": "shadcn 浅色画布",
+        "sourceToken": "theme/shadcn-tokens.json#light.background"
+      },
+      "shadcn-foreground": {
+        "role": "neutral",
+        "displayName": "shadcn 浅色文字",
+        "sourceToken": "theme/shadcn-tokens.json#light.foreground"
+      },
+      "shadcn-primary": {
+        "role": "primary",
+        "displayName": "shadcn 品牌主操作",
+        "sourceToken": "theme/shadcn-tokens.json#light.primary"
+      },
+      "shadcn-primary-foreground": {
+        "role": "neutral",
+        "displayName": "shadcn 主操作文字",
+        "sourceToken": "theme/shadcn-tokens.json#light.primary-foreground"
+      },
+      "shadcn-border": {
+        "role": "neutral",
+        "displayName": "shadcn 轻边界",
+        "sourceToken": "theme/shadcn-tokens.json#light.border"
+      },
+      "shadcn-ring": {
+        "role": "primary",
+        "displayName": "shadcn 焦点环",
+        "sourceToken": "theme/shadcn-tokens.json#light.ring"
+      },
+      "shadcn-dark-primary": {
+        "role": "primary",
+        "displayName": "shadcn 深色主操作",
+        "sourceToken": "theme/shadcn-tokens.json#dark.primary"
+      },
+      "shadcn-dark-primary-foreground": {
+        "role": "neutral",
+        "displayName": "shadcn 深色主操作文字",
+        "sourceToken": "theme/shadcn-tokens.json#dark.primary-foreground"
+      },
+      "shadcn-primary-hover": {
+        "role": "primary",
+        "displayName": "shadcn 主操作悬停",
+        "sourceToken": "theme/shadcn-tokens.json#light.primary-hover"
+      },
+      "shadcn-primary-active": {
+        "role": "primary",
+        "displayName": "shadcn 主操作按下",
+        "sourceToken": "theme/shadcn-tokens.json#light.primary-active"
+      },
+      "shadcn-accent": {
+        "role": "primary",
+        "displayName": "shadcn 品牌选中背景",
+        "sourceToken": "theme/shadcn-tokens.json#light.accent"
+      },
+      "shadcn-accent-foreground": {
+        "role": "primary",
+        "displayName": "shadcn 品牌选中文字",
+        "sourceToken": "theme/shadcn-tokens.json#light.accent-foreground"
+      },
+      "shadcn-link": {
+        "role": "primary",
+        "displayName": "shadcn 链接",
+        "sourceToken": "theme/shadcn-tokens.json#light.link"
+      },
+      "shadcn-link-hover": {
+        "role": "primary",
+        "displayName": "shadcn 链接悬停",
+        "sourceToken": "theme/shadcn-tokens.json#light.link-hover"
+      },
+      "shadcn-link-active": {
+        "role": "primary",
+        "displayName": "shadcn 链接按下",
+        "sourceToken": "theme/shadcn-tokens.json#light.link-active"
+      },
+      "shadcn-destructive": {
+        "role": "semantic",
+        "displayName": "shadcn 危险文字",
+        "sourceToken": "theme/shadcn-tokens.json#light.destructive"
+      },
+      "shadcn-destructive-solid": {
+        "role": "semantic",
+        "displayName": "shadcn 危险实体背景",
+        "sourceToken": "theme/shadcn-tokens.json#light.destructive-solid"
+      },
+      "shadcn-destructive-foreground": {
+        "role": "neutral",
+        "displayName": "shadcn 危险实体文字",
+        "sourceToken": "theme/shadcn-tokens.json#light.destructive-foreground"
+      }
+    },
+    "typographyMeta": {
+      "heading1": {
+        "displayName": "页面标题",
+        "purpose": "页面标题；尺寸与行高来自官方预设。",
+        "sourceToken": "modes.light.tokens.fontSizeHeading1"
+      },
+      "heading3": {
+        "displayName": "分组标题",
+        "purpose": "分组标题；尺寸与行高来自官方预设。",
+        "sourceToken": "modes.light.tokens.fontSizeHeading3"
+      },
+      "body": {
+        "displayName": "正文与控件",
+        "purpose": "默认阅读与交互文字。",
+        "sourceToken": "modes.light.tokens.fontSize"
+      },
+      "label": {
+        "displayName": "辅助信息",
+        "purpose": "非关键辅助信息与普通标签。",
+        "sourceToken": "modes.light.tokens.fontSizeSM"
+      },
+      "code": {
+        "displayName": "代码",
+        "purpose": "代码、token 名称与命令。",
+        "sourceToken": "modes.light.tokens.fontFamilyCode"
+      },
+      "shadcn-body": {
+        "displayName": "shadcn 正文",
+        "purpose": "Tailwind 官方系统字体与作用域正文；Input 窄屏继承此尺寸。",
+        "sourceToken": "preview/shadcn.css#.shadcn-scope / tailwindcss/theme.css#--font-sans"
+      },
+      "shadcn-control": {
+        "displayName": "shadcn 按钮",
+        "purpose": "默认按钮；Input 从 48rem 起使用相同字号但保留常规字重。",
+        "sourceToken": "preview/shadcn/components/ui/button.tsx#buttonVariants"
+      }
+    },
+    "shadows": [
+      {
+        "name": "light.boxShadow",
+        "value": "\n      0 6px 16px 0 rgba(0,0,0,0.08),\n      0 3px 6px -4px rgba(0,0,0,0.12),\n      0 9px 28px 8px rgba(0,0,0,0.05)\n    ",
+        "sourceToken": "modes.light.tokens.boxShadow",
+        "purpose": "官方基础浮层阴影。"
+      },
+      {
+        "name": "light.boxShadowSecondary",
+        "value": "\n      0 6px 16px 0 rgba(0,0,0,0.08),\n      0 3px 6px -4px rgba(0,0,0,0.12),\n      0 9px 28px 8px rgba(0,0,0,0.05)\n    ",
+        "sourceToken": "modes.light.tokens.boxShadowSecondary",
+        "purpose": "官方弹出内容与对话层级阴影。"
+      },
+      {
+        "name": "light.boxShadowTertiary",
+        "value": "\n      0 1px 2px 0 rgba(0,0,0,0.05),\n      0 1px 6px -1px rgba(0,0,0,0.03),\n      0 2px 4px 0 rgba(0,0,0,0.03)\n    ",
+        "sourceToken": "modes.light.tokens.boxShadowTertiary",
+        "purpose": "官方较轻表面阴影。"
+      },
+      {
+        "name": "dark.boxShadow",
+        "value": "\n      0 6px 16px 0 rgba(255,255,255,0.016),\n      0 3px 6px -4px rgba(255,255,255,0.024),\n      0 9px 28px 8px rgba(255,255,255,0.010000000000000002)\n    ",
+        "sourceToken": "modes.dark.tokens.boxShadow",
+        "purpose": "官方基础浮层阴影。"
+      },
+      {
+        "name": "dark.boxShadowSecondary",
+        "value": "\n      0 6px 16px 0 rgba(255,255,255,0.016),\n      0 3px 6px -4px rgba(255,255,255,0.024),\n      0 9px 28px 8px rgba(255,255,255,0.010000000000000002)\n    ",
+        "sourceToken": "modes.dark.tokens.boxShadowSecondary",
+        "purpose": "官方弹出内容与对话层级阴影。"
+      },
+      {
+        "name": "dark.boxShadowTertiary",
+        "value": "\n      0 1px 2px 0 rgba(255,255,255,0.010000000000000002),\n      0 1px 6px -1px rgba(255,255,255,0.006),\n      0 2px 4px 0 rgba(255,255,255,0.006)\n    ",
+        "sourceToken": "modes.dark.tokens.boxShadowTertiary",
+        "purpose": "官方较轻表面阴影。"
+      },
+      {
+        "name": "shadcn.shadow-xs",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "sourceToken": "tailwindcss/theme.css#--shadow-xs",
+        "purpose": "Input 与 outline Button 的官方微阴影。"
+      },
+      {
+        "name": "shadcn.shadow-sm",
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "sourceToken": "tailwindcss/theme.css#--shadow-sm",
+        "purpose": "Card 的官方轻阴影。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "motionDurationFast",
+        "value": "0.1s",
+        "sourceToken": "modes.light.tokens.motionDurationFast",
+        "purpose": "快速状态反馈（100ms）。"
+      },
+      {
+        "name": "motionDurationMid",
+        "value": "0.2s",
+        "sourceToken": "modes.light.tokens.motionDurationMid",
+        "purpose": "常规组件过渡（200ms）。"
+      },
+      {
+        "name": "motionDurationSlow",
+        "value": "0.3s",
+        "sourceToken": "modes.light.tokens.motionDurationSlow",
+        "purpose": "浮层等较慢过渡（300ms）。"
+      },
+      {
+        "name": "motionEaseInOut",
+        "value": "cubic-bezier(0.645, 0.045, 0.355, 1)",
+        "sourceToken": "modes.light.tokens.motionEaseInOut",
+        "purpose": "官方双向过渡缓动。"
+      },
+      {
+        "name": "motionEaseOut",
+        "value": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+        "sourceToken": "modes.light.tokens.motionEaseOut",
+        "purpose": "官方进入／位置变化缓动。"
+      },
+      {
+        "name": "shadcn.transition-duration",
+        "value": "150ms",
+        "sourceToken": "tailwindcss/theme.css#--default-transition-duration",
+        "purpose": "源码默认状态过渡；各组件按 transition 属性选用。"
+      },
+      {
+        "name": "shadcn.transition-easing",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "sourceToken": "tailwindcss/theme.css#--default-transition-timing-function",
+        "purpose": "Tailwind 官方默认过渡缓动。"
+      },
+      {
+        "name": "shadcn.dialog-duration",
+        "value": "200ms",
+        "sourceToken": "preview/shadcn/components/ui/dialog.tsx#DialogContent",
+        "purpose": "对话框源码指定的浮层动效。"
+      },
+      {
+        "name": "shadcn.transitions-layout-easing",
+        "value": "cubic-bezier(.22,1,.36,1)",
+        "sourceToken": "preview/shadcn/transitions/layout.tsx#CardResize",
+        "purpose": "尺寸、页面和共享标记的局部扩展缓动；不覆盖基础组件的默认状态过渡。"
+      }
+    ],
+    "motionBehavior": {
+      "source": [
+        "preview/src/app.jsx",
+        "preview/src/views/Motion.jsx",
+        "preview/src/useFocusReturn.js",
+        "preview/shadcn.css",
+        "preview/shadcn/scope.tsx",
+        "preview/shadcn/transitions/hooks.ts",
+        "preview/shadcn/transitions/gallery.tsx"
+      ],
+      "reducedMotion": "全局暂停或系统减少动效时设置 motion:false，关闭过渡并暂停无限循环；保留文字、状态和结果。",
+      "focusReturn": "Drawer 同时处理关闭状态边沿和动画结束回调，进入中途关闭仍恢复有效焦点。",
+      "shadcn": "stopped 映射为 data-motion=\"paused\"；循环静止，有限出入场将时长与延迟归零并完成，避免透明首帧冻结；系统减少动效同样保留可见结果与焦点状态。",
+      "referenceCatalog": {
+        "source": "preview/src/views/MotionReferences.jsx",
+        "fragments": "vendor/transitions-snippets.json",
+        "count": 27,
+        "javascriptControllers": 15,
+        "cssFragments": 12,
+        "isolation": "一次一个 iframe 舞台；通过语义变量适应当前主题。",
+        "lifecycle": "切换或卸载清理控制器与定时器。",
+        "scope": "历史 Motion 页参考，与新增 43 项 shadcn 原生 React 扩展独立。"
+      },
+      "brandPresets": {
+        "source": "preview/src/views/Motion.jsx",
+        "orbCount": 9,
+        "beamCount": 5,
+        "preference": "局部暂停服从全局减少动效；品牌实验按需启用。"
+      },
+      "transitions": "CSS3 优先，动态归位使用 Anime.js；局部、全局、系统、页面隐藏及离屏控制保留可见结果，卸载清理动画与事件。"
+    },
+    "breakpoints": [
+      {
+        "name": "documentation-navigation",
+        "value": "1023px",
+        "query": "max-width",
+        "scope": "文档外壳侧栏收纳到 Drawer，非业务通用断点。",
+        "source": "preview/src/app.jsx"
+      },
+      {
+        "name": "documentation-mobile",
+        "value": "767px",
+        "query": "max-width",
+        "scope": "文档外壳手机排版，非业务通用断点。",
+        "source": "preview/src/app.jsx"
+      },
+      {
+        "name": "shadcn-input-text",
+        "value": "48rem",
+        "query": "min-width",
+        "scope": "Input 字号从 16px 调整为 14px；不是所有业务通用断点。",
+        "source": "preview/shadcn/components/ui/input.tsx"
+      }
+    ],
+    "layoutScope": {
+      "source": "preview/src/app.jsx",
+      "scope": "以下尺寸只记录当前文档外壳，不强制业务页面采用。",
+      "headerHeight": "64px",
+      "railWidth": "228px",
+      "contentMaxWidth": "1264px"
+    },
+    "focus": {
+      "outline": "2px solid var(--ant-token-color-primary)",
+      "outlineOffset": "3px",
+      "source": "preview/src/app.jsx",
+      "shadcn": {
+        "ringWidth": "3px",
+        "ringColor": "var(--ring)",
+        "borderColor": "var(--ring)",
+        "source": [
+          "preview/shadcn/components/ui/button.tsx",
+          "preview/shadcn/components/ui/input.tsx"
+        ],
+        "ringOffsetWidth": "2px",
+        "ringOffsetColor": "var(--background)"
+      }
+    },
+    "evidence": {
+      "finishReview": ".impeccable/review/finish-review.md",
+      "browserReview": ".impeccable/review/browser-review-final.json",
+      "representativeScreenshots": [
+        "docs/redesign-assets/overview-desktop.png",
+        "docs/redesign-assets/overview-mobile.png",
+        "docs/redesign-assets/components-dark.png"
+      ],
+      "publicRecord": "docs/design-system-redesign-2026-10-19.md",
+      "deployment": "原始 .impeccable/review 记录仅供本地核对，不部署；公共结论见 publicRecord。",
+      "currentExtension": {
+        "finishReview": ".impeccable/review/shadcn-finish-review.md",
+        "browserReview": ".impeccable/review/shadcn-theme-validation.json",
+        "publicRecord": "docs/theme-isolation-and-shadcn-2026-10-19.md",
+        "verdict": "ship",
+        "checksPassed": 26,
+        "browserErrors": 0,
+        "coverage": "8 种嵌套主题、18 种浅深／视口／页签组合、32 个 shadcn 变量；真实表单、Portal 主题、焦点返回、暂停与 Ant Design 隔离。",
+        "representativeScreenshots": [
+          "docs/redesign-assets/shadcn-user-1166.png",
+          "docs/redesign-assets/shadcn-components-desktop.png",
+          "docs/redesign-assets/nested-themes-dark-desktop.png"
+        ],
+        "reviewedScreenshotCount": 9,
+        "scope": "既有 Chromium Web 证据；未外推全部浏览器、屏幕阅读器、原生平台或生产验收。",
+        "status": "historical",
+        "supersededBy": "docs/shadcn-brand-and-motion-2026-10-19.md"
+      },
+      "brandAndMotion": {
+        "publicRecord": "docs/shadcn-brand-and-motion-2026-10-19.md",
+        "status": "historical",
+        "browserRegressionPassed": 26,
+        "variablesPerMode": 41,
+        "motionReferenceCount": 27,
+        "orbPresetCount": 9,
+        "beamPresetCount": 5,
+        "scope": "独立审阅逐张查看本轮 9 张截图并核对当前源码及 82 项通过的回归；无实质待修复问题。结论限于已记录 Chromium Web 场景，不外推所有平台或完整 WCAG 认证。",
+        "browserReview": ".impeccable/review/shadcn-theme-validation.json",
+        "brandReview": ".impeccable/review/shadcn-brand-validation.json",
+        "motionReview": ".impeccable/review/motion-regression.json",
+        "captureManifest": ".impeccable/review/brand-motion-captures.json",
+        "brandChecksPassed": 18,
+        "motionChecksPassed": 38,
+        "checksPassed": 82,
+        "checksFailed": 0,
+        "browserErrors": 0,
+        "reviewedScreenshotCount": 9,
+        "representativeScreenshots": [
+          "docs/redesign-assets/brand-shadcn-dark-desktop.png",
+          "docs/redesign-assets/brand-shadcn-light-mobile.png",
+          "docs/redesign-assets/brand-motion-desktop.png"
+        ],
+        "verdict": "ship",
+        "finishReview": ".impeccable/review/brand-motion-finish-review.md",
+        "detector": ".impeccable/review/brand-motion-detector.json",
+        "coverage": "常规 26 项、品牌 18 项、动效 38 项；41 角色 × 浅深、主/危险/链接三态、真实菜单键盘与焦点、27 动效参考暂停状态、9 Orb 与 5 Beam 预设实际挂载、窄屏。",
+        "testedTextContrastMinimum": 4.513,
+        "supersededBy": "docs/shadcn-transitions-2026-10-19.md"
+      },
+      "transitions": {
+        "publicRecord": "docs/shadcn-transitions-2026-10-19.md",
+        "status": "historical",
+        "regressionCommand": "pnpm test:transitions",
+        "build": "passed",
+        "generatedCheck": "passed",
+        "browserReview": ".impeccable/review/transitions-validation.json",
+        "newChecksPassed": 305,
+        "existingChecksRerun": {
+          "browser": 26,
+          "brand": 18,
+          "motion": 38,
+          "total": 82
+        },
+        "checksPassed": 387,
+        "checksFailed": 0,
+        "browserErrors": 0,
+        "currentRegressionRecords": [
+          ".impeccable/review/transitions-validation.json",
+          ".impeccable/review/shadcn-theme-validation.json",
+          ".impeccable/review/shadcn-brand-validation.json",
+          ".impeccable/review/motion-regression.json"
+        ],
+        "coverage": "43 项浅深主题真实挂载、重放、暂停可读与恢复；320/375px 窄屏、搜索/分类/空结果、深链、真实浮层/通知、键盘与减少动效；原 82 项在当前构建重跑。",
+        "captureManifest": ".impeccable/review/native-transitions-captures.json",
+        "capturedScreenshotCount": 10,
+        "representativeScreenshots": [
+          "docs/transition-assets/native-transitions-light-desktop.png",
+          "docs/transition-assets/native-transitions-dark-desktop.png",
+          "docs/transition-assets/native-transitions-light-mobile.png",
+          "docs/transition-assets/native-transitions-drag.png",
+          "docs/transition-assets/native-transitions-pro-stack.png"
+        ],
+        "provenanceScan": {
+          "directory": "docs/",
+          "rasterCount": 16,
+          "missing": 0,
+          "scope": "包含既有截图；不是本轮新截图数量。"
+        },
+        "detector": ".impeccable/review/native-transitions-detector.json",
+        "detectorRawFindings": 5,
+        "detectorResolution": ".impeccable/review/native-transitions-detector-resolution.json",
+        "detectorScope": "五项用户点名交互的局部例外，有精确源码注释；不扩大到产品全局，不声称检测零项。",
+        "independentReview": "complete",
+        "scope": "当前 Chromium Web 已记录场景，不外推完整 WCAG、全部设备或原生平台。",
+        "verdict": "ship",
+        "finishReview": ".impeccable/review/native-transitions-finish-review.md",
+        "reviewedScreenshotCount": 10,
+        "materialFindings": 0,
+        "reviewScope": "逐张查看现有 10 张截图，核对 43 项目录/源码映射、CSS3/Anime.js、主题/控制/来源边界及 387 项真实回归；5 项局部例外成立。审阅者未另跑浏览器、测试、截图或 detector；仅限已记录 Chromium Web 范围。",
+        "supersededBy": "docs/transitions-fidelity-2026-10-19.md"
+      },
+      "transitionsFidelity": {
+        "publicRecord": "docs/transitions-fidelity-2026-10-19.md",
+        "status": "historical",
+        "observedItemCount": 43,
+        "observationRecords": [
+          ".impeccable/review/transitions-fidelity-layout.json",
+          ".impeccable/review/transitions-fidelity-feedback.json",
+          ".impeccable/review/transitions-fidelity-effects.json"
+        ],
+        "method": "逐个操作 43 个官网公开演示；读取 computed style、getAnimations 时长与关键帧，观察点击/悬停/离开/拖放/状态交接；布局两轮、反馈约 5 秒时间线、Canvas 追加尾段采样。未读取 recipe 页或 Pro 私有源码。",
+        "precision": "明确 CSS 参数与浏览器 JS/Canvas 采样范围分别标注；后者不推断为精确私有曲线。",
+        "materialCorrections": [
+          "Page ±110% 横滑改为 ±8px/250ms/blur3",
+          "Panel 左右扩栏改为半高上移，400/350ms",
+          "Avatar 进入/退出曲线分开，抬升 18px 改为 4px",
+          "Matrix 四种模式分别恢复相位、静点与空角",
+          "Image Portal 显式缓动变量，恢复原先未运行的展开/关闭动画",
+          "Panel/Accordion 内部 motion 层避开 Radix 测量阶段过渡禁用，恢复真实中间帧",
+          "Tooltip 使用官方 disableHoverableContent 解除相邻 hover 被 grace polygon 拦截",
+          "Accordion 局部 rotate:0 避免 Tailwind rotate180 与 scaleY(-1) 叠加方向错误"
+        ],
+        "adaptationBoundary": "保留真实 shadcn/Radix 语义、中文内容与品牌角色；Canvas 弯曲、噪声与物理粒子使用自主 CSS3 近似，Pro 只观察公开演示。",
+        "build": "passed",
+        "generatedCheck": "passed",
+        "regression": "passed",
+        "captures": "complete",
+        "independentReview": "complete",
+        "scope": "本轮 407 项真实功能/动画回归、15 张新截图与最终独立 ship；初始 fix 报告完整保留。仅限已记录 Chromium Web、已说明 CSS3 自主近似及品牌/shadcn 适配，不外推逐像素一致、完整 WCAG、全部设备或原生平台。",
+        "regressionCommand": "pnpm test:transitions",
+        "newChecksPassed": 325,
+        "existingChecksRerun": {
+          "browser": 26,
+          "brand": 18,
+          "motion": 38,
+          "total": 82
+        },
+        "checksPassed": 407,
+        "checksFailed": 0,
+        "browserErrors": 0,
+        "currentRegressionRecords": [
+          ".impeccable/review/transitions-validation.json",
+          ".impeccable/review/shadcn-theme-validation.json",
+          ".impeccable/review/shadcn-brand-validation.json",
+          ".impeccable/review/motion-regression.json"
+        ],
+        "coverage": "43 项真实浅深挂载、暂停/重放/减少动效、320/375px 窄屏、键盘与浮层；实测 Panel/Accordion 中间帧、提示跨按钮、头像进出曲线等参数；原 82 项本轮重跑。",
+        "bundleOutputKilobytes": 1657.9,
+        "captureManifest": ".impeccable/review/fidelity-transitions-captures.json",
+        "capturedScreenshotCount": 15,
+        "capturedViewports": [
+          "1440px desktop light/dark",
+          "375px mobile light/dark",
+          "1264x712 user viewport",
+          "10 key interaction states"
+        ],
+        "representativeScreenshots": [
+          "docs/transition-assets/fidelity-transitions-light-desktop.png",
+          "docs/transition-assets/fidelity-transitions-dark-desktop.png",
+          "docs/transition-assets/fidelity-transitions-light-mobile.png",
+          "docs/transition-assets/fidelity-transitions-dark-mobile.png",
+          "docs/transition-assets/fidelity-transitions-user-1264.png",
+          "docs/transition-assets/fidelity-transitions-panel.png",
+          "docs/transition-assets/fidelity-transitions-page.png",
+          "docs/transition-assets/fidelity-transitions-accordion.png",
+          "docs/transition-assets/fidelity-transitions-tabs.png",
+          "docs/transition-assets/fidelity-transitions-dialog-paused.png",
+          "docs/transition-assets/fidelity-transitions-toast.png",
+          "docs/transition-assets/fidelity-transitions-feedback.png",
+          "docs/transition-assets/fidelity-transitions-image-reveal.png",
+          "docs/transition-assets/fidelity-transitions-drag.png",
+          "docs/transition-assets/fidelity-transitions-pro-stack.png"
+        ],
+        "provenanceScan": {
+          "directory": "docs/transition-assets/",
+          "rasterCount": 20,
+          "missing": 0,
+          "scope": "15 张本轮新截图均嵌入 Origin；目录总数包含此前 5 张。"
+        },
+        "detector": ".impeccable/review/fidelity-transitions-detector.json",
+        "detectorRunCount": 1,
+        "detectorRawFindings": 9,
+        "detectorResolution": ".impeccable/review/fidelity-transitions-detector-resolution.json",
+        "mechanicalFixesOutstanding": 0,
+        "detectorScope": "9 项为对应公开演示的局部有界弹性，逐项记录意图；不扩展至全局，不声称零发现。",
+        "verdict": "ship",
+        "finishReview": ".impeccable/review/transitions-fidelity-finish-review.md",
+        "initialFinishDisposition": "fix",
+        "initialMaterialFindings": 1,
+        "finalVerdict": ".impeccable/review/transitions-fidelity-finish-verdict.md",
+        "resolvedMaterialFindings": 1,
+        "remainingMaterialFindings": 0,
+        "reviewedScreenshotCount": 15,
+        "reviewScope": "独立审阅全部 15 张截图、43 项逐项记录与关键运行证据，初次唯一 fix 为目录三处旧说明；同步后 Verdict Pass 只读复核 1/1 已解决，最终 ship。审阅与 verdict 未另开浏览器、运行测试、截图或 detector。",
+        "postReviewChange": "仅同步输入消散、彩屑、文字扫光三处目录说明，不改变 UI、动效参数、状态交接或主题；随后 pnpm build/check 再通过，407 项功能/动画与 15 张截图证据范围不变。",
+        "supersededBy": "docs/pro-transitions-refinement-2026-10-19.md"
+      },
+      "proTransitionsRefinement": {
+        "publicRecord": "docs/pro-transitions-refinement-2026-10-19.md",
+        "status": "historical",
+        "components": [
+          "image-open-tilt",
+          "delete-with-smoky-dissolve",
+          "confetti-burst"
+        ],
+        "sourceBoundary": "重新观测三个公开 Preview 的实际交互、computed style 与 Canvas 可见像素；未打开 recipe/代码页、登录 Pro 或访问付费私有源码。",
+        "observationRecords": [
+          ".impeccable/review/pro-image-refinement.json",
+          ".impeccable/review/pro-smoke-refinement.json",
+          ".impeccable/review/pro-confetti-refinement.json"
+        ],
+        "materialCorrections": [
+          "Image 48 列共享整图坐标形成连续曲面，实测缩略图投影连接 450ms 展开/350ms 收回，中断从可见姿态继续；从平面挂载回调测量真实 Portal 起点。",
+          "Image 白/黑背景诊断发现列抗锯齿透明接缝，改为 4px 源空间重叠；同一诊断场景内部像素不再随背景变化，不外推所有设备。",
+          "Smoke 由细网格改为预挂载连续整图双层与静态 5.2px SVG 位移，540ms 柔化、3deg 转动与 20% 高度下沉；animationend 主导交接，780ms 仅兜底。",
+          "Confetti 38-88 片预计算 CSS 轨迹铺满舞台，按真实按钮/底面分别碰撞，包含双面翻转、空气阻力与 3-4 秒驻留淡出。"
+        ],
+        "engine": "CSS3 transitions/keyframes; React 负责状态、测量、中断快照与单次轨迹预计算，无 JavaScript 逐帧插值或新增依赖。",
+        "adaptationBoundary": "保留自有 COHESION 图形、语义颜色和 shadcn/Radix 的焦点/Escape；曲面、持续变化的 Canvas 噪声与随机纸片路径均为自主 CSS 近似。",
+        "performanceBoundary": "仅当前宿主的 Chromium 单次观测：Smoke 修正后约 12ms CSS 启动差；Confetti 最终桌面动态 CSS 367944bytes、强制样式解析 13.1ms。不得外推真实手机、所有设备或 60fps。",
+        "regressionCommands": [
+          "pnpm test:pro",
+          "pnpm test:transitions",
+          "pnpm test:browser",
+          "pnpm test:brand",
+          "pnpm test:motion"
+        ],
+        "build": "passed",
+        "bundleOutputKilobytes": 1671.6,
+        "generatedCheck": "passed",
+        "regression": "passed",
+        "checksPassed": 433,
+        "checksFailed": 0,
+        "browserErrors": 0,
+        "checksBySuite": {
+          "pro": 26,
+          "transitions": 325,
+          "browser": 26,
+          "brand": 18,
+          "motion": 38
+        },
+        "currentRegressionRecords": [
+          ".impeccable/review/pro-transitions-validation.json",
+          ".impeccable/review/transitions-validation.json",
+          ".impeccable/review/shadcn-theme-validation.json",
+          ".impeccable/review/shadcn-brand-validation.json",
+          ".impeccable/review/motion-regression.json"
+        ],
+        "additionalStabilityDiagnostic": {
+          "record": ".impeccable/review/pro-official-motion-boundary-validation.json",
+          "passed": true,
+          "errors": 0,
+          "behavior": "首次暂停/恢复与 OS 减少动效保留同 Input 未保存值和同 Dialog；Ant 正常 200/300ms 动画及 motion token true/false 有效。使用公开 ConfigProvider，不增加内部 Ant API 或依赖补丁。",
+          "countScope": "附加诊断，不另加进 433 项回归。"
+        },
+        "captures": "complete",
+        "captureManifest": ".impeccable/review/pro-refinement-captures.json",
+        "capturedScreenshotCount": 12,
+        "capturedViewports": [
+          "1440x1200 desktop light/dark",
+          "375x1800 mobile light/dark"
+        ],
+        "captureMethod": "QA 暂停并定位 CSSAnimation 至 image75ms/smoke180ms/confetti650ms，产品不使用 WAAPI 播放。",
+        "representativeScreenshots": [
+          "docs/transition-assets/pro-refinement-image-light-desktop.png",
+          "docs/transition-assets/pro-refinement-image-dark-desktop.png",
+          "docs/transition-assets/pro-refinement-image-light-mobile.png",
+          "docs/transition-assets/pro-refinement-image-dark-mobile.png",
+          "docs/transition-assets/pro-refinement-smoke-light-desktop.png",
+          "docs/transition-assets/pro-refinement-smoke-dark-desktop.png",
+          "docs/transition-assets/pro-refinement-smoke-light-mobile.png",
+          "docs/transition-assets/pro-refinement-smoke-dark-mobile.png",
+          "docs/transition-assets/pro-refinement-confetti-light-desktop.png",
+          "docs/transition-assets/pro-refinement-confetti-dark-desktop.png",
+          "docs/transition-assets/pro-refinement-confetti-light-mobile.png",
+          "docs/transition-assets/pro-refinement-confetti-dark-mobile.png"
+        ],
+        "captureProvenance": "12 张本轮截图均已嵌入 Origin；不以旧 15 张截图代替本轮结果。",
+        "provenanceScan": {
+          "directory": "docs/transition-assets/",
+          "rasterCount": 32,
+          "missing": 0,
+          "scope": "20 张历史图加 12 张本轮图，不是本轮新拍 32 张。"
+        },
+        "detector": ".impeccable/review/pro-refinement-detector.json",
+        "detectorRunCount": 1,
+        "detectorRawFindings": 4,
+        "detectorResolution": ".impeccable/review/pro-refinement-detector-resolution.json",
+        "mechanicalFixesOutstanding": 0,
+        "detectorScope": "四项是未改动头像组/卡片堆叠/喜欢按钮/开关的既有局部弹性；逐项记录意图，不声称检测零发现。局部静态烟化位移另有明确用途。",
+        "independentReview": "complete",
+        "finishReview": ".impeccable/review/pro-refinement-finish-review.md",
+        "verdict": "ship",
+        "materialFindings": 0,
+        "reviewedScreenshotCount": 12,
+        "reviewScope": "新的五节独立报告实际逐张查看全部 12 张及三组公开/本地阶段对照，核对源码/目录/兼容入口、433 项结果、Origin、四项检测意图与公开 ConfigProvider 边界。未另启浏览器、重跑测试、截图或 detector。",
+        "scope": "迁移前 Pro 构建的 433 项检查、12 张新截图与独立 ship；0 项实质待修复。仅证明该历史 Chromium Web 范围，不证明后续 Tailwind 迁移；保留 CSS/Canvas 近似和真实低性能设备等限制。",
+        "supersededBy": "docs/tailwind-migration-2026-10-19.md"
+      },
+      "tailwindMigration": {
+        "publicRecord": "docs/tailwind-migration-2026-10-19.md",
+        "status": "complete",
+        "scope": "确认433与最终断点180属于不同构建，不合称同构建613；18张来源截图与独立ship已完成，0项实质待修复。仅记录的Chromium Web，不外推全部设备/完整WCAG/性能提升；旧407/433等仍为历史。",
+        "removedOwnedCssFiles": 10,
+        "migratedSelectors": 1041,
+        "selectorInventory": {
+          "documentFiles": 2,
+          "documentSelectors": 490,
+          "shadcnFiles": 8,
+          "shadcnSelectors": 551
+        },
+        "staticKeyframeRecipes": 63,
+        "migrationRecords": [
+          ".impeccable/review/tailwind-document-migration.json",
+          ".impeccable/review/tailwind-shadcn-migration.json"
+        ],
+        "baseline": {
+          "manifest": ".impeccable/review/tailwind-baseline-render-manifest.json",
+          "domSnapshots": 24,
+          "screenshots": 16,
+          "dimensions": "6 route x 2 theme x 2 viewport；截图为12桌面+overview/shadcn4手机，不是24张。",
+          "appSha256": "c8d5546cb56ce88657cbf47b941c49a305d4890aadc3b06b4e0f4f580bbe37e1",
+          "method": "真实冻结迁移前资源集，不以新构建重新拍摄冒充旧版。"
+        },
+        "initialBuildObservation": {
+          "jsKilobytes": 1893.6,
+          "appCssKilobytes": 2.8,
+          "scope": "初次整合输出；不是全部样式合计，不构成性能提升结论。"
+        },
+        "styleGuardCommand": "pnpm check:styles",
+        "regression": "passed-on-confirmation-build",
+        "renderComparison": "complete-with-known-final-breakpoint-fix",
+        "provenance": "complete",
+        "independentReview": "complete",
+        "historicalBoundary": "407/15和433/12等通过和ship仅证明对应迁移前构建。",
+        "initialInspection": {
+          "appSha256": "08732a041b2256d35ac0c101509aece3186041b0eea027f9b472d3b107f9c785",
+          "passed": 430,
+          "failed": 3,
+          "total": 433,
+          "archive": ".impeccable/review/tailwind-first-round/",
+          "failures": [
+            "浅/深Accordion原生rotate与scaleY叠加",
+            "旧清空参考播放状态未保留"
+          ],
+          "renderFixes": [
+            "全局链接覆盖Ant锚点按钮",
+            "手机页签72px缩为36px",
+            "FieldDescription顶部间距"
+          ]
+        },
+        "confirmation": {
+          "record": ".impeccable/review/tailwind-confirmation-validation.json",
+          "manifest": ".impeccable/review/tailwind-after-render-manifest.json",
+          "comparison": ".impeccable/review/tailwind-render-comparison.json",
+          "appSha256": "7fde0262d9e3565ff2613900817d817542a17a90616d1dadc400d8b37e119b66",
+          "passed": 433,
+          "failed": 0,
+          "browserErrors": 0,
+          "suites": {
+            "transitions": 325,
+            "browser": 26,
+            "brand": 18,
+            "motion": 38,
+            "pro": 26
+          },
+          "domSnapshots": 24,
+          "screenshots": 16,
+          "remainingFinding": "375px画廊筛选从335px单列变双列，后在最终构建以正式有序inclusive断点variant修复。"
+        },
+        "finalTargetedConfirmation": {
+          "command": "pnpm test:breakpoints",
+          "record": ".impeccable/review/tailwind-breakpoint-validation.json",
+          "appSha256": "f9afd88531a25ebcc0791fc3bfd4ee81252bc5f76016b34854d58b9e6372310b",
+          "passed": 180,
+          "failed": 0,
+          "browserErrors": 0,
+          "dimensions": "18 widths x 2 themes x 5 properties",
+          "scope": "375单列335px、500/501边界、767/768页签、内边距/分栏/溢出。最终断点/说明构建仅专项，未重跑完整433，不可合称同构建613。"
+        },
+        "finalBuild": {
+          "jsKilobytes": 1896.6,
+          "appCssKilobytes": 2.8,
+          "generatedCheck": "passed",
+          "styleSourceGuard": "passed",
+          "scope": "不是全部样式合计，不主张性能提升。"
+        },
+        "styleSourceGuard": {
+          "directiveEntries": 6,
+          "retiredSheetsAbsent": 10,
+          "sourceFiles": 80
+        },
+        "capturedScreenshotCount": 18,
+        "representativeScreenshots": [
+          "docs/transition-assets/tailwind-after-antd-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-antd-light-desktop.png",
+          "docs/transition-assets/tailwind-after-motion-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-motion-light-desktop.png",
+          "docs/transition-assets/tailwind-after-overview-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-overview-dark-mobile.png",
+          "docs/transition-assets/tailwind-after-overview-light-desktop.png",
+          "docs/transition-assets/tailwind-after-overview-light-mobile.png",
+          "docs/transition-assets/tailwind-after-patterns-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-patterns-light-desktop.png",
+          "docs/transition-assets/tailwind-after-shadcn-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-shadcn-dark-mobile.png",
+          "docs/transition-assets/tailwind-after-shadcn-light-desktop.png",
+          "docs/transition-assets/tailwind-after-shadcn-light-mobile.png",
+          "docs/transition-assets/tailwind-after-transitions-dark-desktop.png",
+          "docs/transition-assets/tailwind-after-transitions-light-desktop.png",
+          "docs/transition-assets/tailwind-final-gallery-dark-mobile.png",
+          "docs/transition-assets/tailwind-final-gallery-light-mobile.png"
+        ],
+        "captureScope": "16张确认构建+2张最终375画廊浅深；均Origin，desktop1440x1200/mobile375x1800。",
+        "provenanceScan": {
+          "directory": "docs/transition-assets/",
+          "rasterCount": 50,
+          "missing": 0,
+          "scope": "32历史+18本轮，不是本轮50张。"
+        },
+        "detector": ".impeccable/review/tailwind-detector.json",
+        "detectorRunCount": 1,
+        "detectorRawFindings": 218,
+        "detectorResolution": ".impeccable/review/tailwind-detector-resolution.json",
+        "detectorCounts": {
+          "layout-transition": 6,
+          "gradient-text": 3,
+          "bounce-easing": 2,
+          "design-system-color": 207
+        },
+        "mechanicalFixesOutstanding": 0,
+        "detectorScope": "6跨媒体正则误报；3渐变/2弹性为原参考；207为旧Beam实验palette，40模型场景等价，不是新增产品色。",
+        "finishReview": ".impeccable/review/tailwind-finish-review.md",
+        "verdict": "ship",
+        "materialFindings": 0,
+        "reviewedScreenshotCount": 18,
+        "reviewedBaselineRepresentativeCount": 4,
+        "reviewScope": "新的五节只读独立报告实际逐张查看18张本轮和4张冻结基线代表，逐文件核对18张Origin，核对433/180不同构建范围、源码编译链及detector原始218处置。未另启浏览器、重跑构建/测试/截图/来源扫描/detector。"
+      }
+    },
+    "themeIsolation": {
+      "antdMotionBoundary": {
+        "source": "preview/src/app.jsx",
+        "method": "公开 ConfigProvider 固定外层动效边界与 inherit:false 内层真实主题，避免首次 motion:false 插入 Provider 重建 Shell。",
+        "diagnostic": ".impeccable/review/pro-official-motion-boundary-validation.json",
+        "behavior": "首次暂停/系统减少动效保持同 Input 的未保存值和同 Dialog，正常 Ant 200/300ms 动画与 motion token 切换有效。",
+        "boundary": "双体系文档状态稳定性适配，不调用 Ant 内部 API 或新增依赖补丁，不要求普通产品复制该外壳。"
+      },
+      "antdFixedSamples": {
+        "source": "preview/src/views/Overview.jsx",
+        "inherit": false,
+        "purpose": "固定浅深样例各自保留完整主题、显式密度与减少动效参数和局部 App 上下文；普通局部 token 扩展可按需继承。"
+      },
+      "shadcnPreview": {
+        "source": "preview/shadcn/scope.tsx",
+        "shadowRoot": "open",
+        "styles": "Tailwind preflight、utility 与页面布局仅注入当前 ShadowRoot。",
+        "portals": "Dialog、AlertDialog、Select、DropdownMenu、Tooltip 使用同一局部主题 Portal 容器。",
+        "propertyFallback": "scripts/build-shadcn-styles.mjs 从实际生成的 41 个 @property 提取初值，放入最低 properties 层；不向主文档注册。",
+        "standalone": "单体系产品可按官方方式接入全局 Tailwind，无需复制预览包装。",
+        "keyboardFocus": {
+          "source": "scripts/radix-shadow-focus.mjs",
+          "packages": [
+            "@radix-ui/react-roving-focus@1.2.1",
+            "@radix-ui/react-menu@2.2.1",
+            "@radix-ui/react-focus-scope@1.3.1"
+          ],
+          "behavior": "本预览构建读取开放 ShadowRoot 内实际焦点；精确版本与替换次数校验不匹配时中断，不修改安装包或浏览器原型。"
+        }
+      }
+    },
+    "shadcnTransitions": {
+      "source": "preview/shadcn/transitions/",
+      "catalog": "preview/shadcn/transitions/catalog.ts",
+      "types": "preview/shadcn/transitions/types.ts",
+      "route": "#shadcn?tab=transitions&item=card-resize",
+      "total": 43,
+      "publicFreeReferenceCount": 32,
+      "publicProPreviewReferenceCount": 11,
+      "categories": [
+        {
+          "id": "layout",
+          "name": "布局与导航",
+          "count": 6
+        },
+        {
+          "id": "overlays",
+          "name": "浮层与通知",
+          "count": 5
+        },
+        {
+          "id": "controls",
+          "name": "输入与操作",
+          "count": 9
+        },
+        {
+          "id": "feedback",
+          "name": "反馈与智能状态",
+          "count": 7
+        },
+        {
+          "id": "text",
+          "name": "数字与文本",
+          "count": 8
+        },
+        {
+          "id": "effects",
+          "name": "视觉与交互",
+          "count": 8
+        }
+      ],
+      "implementationModules": [
+        {
+          "path": "preview/shadcn/transitions/layout.tsx",
+          "count": 12
+        },
+        {
+          "path": "preview/shadcn/transitions/feedback.tsx",
+          "count": 16
+        },
+        {
+          "path": "preview/shadcn/transitions/effects.tsx",
+          "count": 12,
+          "compatibilityExports": [
+            "ImageOpenTilt",
+            "DeleteWithSmokyDissolve",
+            "ConfettiBurst"
+          ]
+        },
+        {
+          "path": "preview/shadcn/transitions/pro-image.tsx",
+          "count": 1
+        },
+        {
+          "path": "preview/shadcn/transitions/pro-smoke.tsx",
+          "count": 1
+        },
+        {
+          "path": "preview/shadcn/transitions/pro-confetti.tsx",
+          "count": 1
+        }
+      ],
+      "enginePolicy": "CSS3 优先；需要动态脚本补间时优先 Anime.js；React 管理状态和事件。",
+      "engines": {
+        "css3": 42,
+        "css3WithAnimejs": 1,
+        "animejsVersion": "4.5.0",
+        "dynamicEntry": "drag-drop-with-physics"
+      },
+      "componentApi": {
+        "interface": "TransitionDemoProps",
+        "props": {
+          "stopped": {
+            "type": "boolean",
+            "required": true,
+            "purpose": "保留可见结果并减少动效；共同 Hook 进一步合并设备偏好。"
+          },
+          "replayKey": {
+            "type": "number",
+            "required": true,
+            "purpose": "变化时触发对应示例的再次演示，不要求销毁组件实例。"
+          }
+        },
+        "integration": "复制模块/hooks.ts/types.ts/引用基础组件，让Tailwind扫描源码；接入正式@theme/variant、静态motion插件及tailwind-breakpoints.mjs有序inclusive变体。彩屑需lib/motion-styles.tsx，不导入已删除组件CSS。"
+      },
+      "lifecycle": "系统减少动效、页面隐藏、舞台离屏和局部／全局暂停；清理定时器、监听与脚本补间。",
+      "styleBoundary": "全部 43 项为现有 ShadcnScope 内的真实 React 组合；不使用 iframe。Sonner 2.0.8 的 CSS 和主题保持同作用域。",
+      "sourceAttribution": "Public behavior reference: Transitions.dev by Jakub Antalik.",
+      "publicReference": "https://transitions.dev/detail.html?t=card-resize",
+      "sourceInventory": ".impeccable/review/transitions-source-inventory.json",
+      "sourceBoundary": "全部自主编写；不复制上游 recipe 或 Pro 私有源码，不声明官方 shadcn 组件、上游 Pro 源码或授权。",
+      "publicRecord": "docs/shadcn-transitions-2026-10-19.md",
+      "regressionCommand": "pnpm test:transitions",
+      "fidelityRecord": "docs/transitions-fidelity-2026-10-19.md",
+      "dynamicInterpolation": "拖动坐标直接映射；未接受时 Anime.js 500ms 直接弹性归位，接受后目标固定、图像 400ms 淡入。",
+      "proRefinementRecord": "docs/pro-transitions-refinement-2026-10-19.md",
+      "proRefinementModules": [
+        "pro-image",
+        "pro-smoke",
+        "pro-confetti"
+      ],
+      "proModuleIntegration": "直接导入独立模块，扫描源码中的sc:工具类并注册正式主题/variant/静态关键帧；彩屑需MotionStyles；图形部署自有资源，effects.tsx兼容导出保留。",
+      "styleMigrationRecord": "docs/tailwind-migration-2026-10-19.md"
+    },
+    "tailwindStyles": {
+      "version": "4.3.3",
+      "document": {
+        "foundationPrefix": "doc",
+        "foundationSource": "preview/foundation.tailwind.css",
+        "foundationCascade": "低权重unlayered默认基线",
+        "prefix": "tw",
+        "source": "preview/tailwind.css",
+        "classes": "preview/src/",
+        "generated": "preview/tailwind.generated.css",
+        "cascade": "重要显式工具类",
+        "boundary": "Ant官方reset/CSS-in-JS保留"
+      },
+      "shadcn": {
+        "prefix": "sc",
+        "source": "preview/shadcn.css",
+        "classes": "preview/shadcn/",
+        "theme": "@theme/@custom-variant/source/plugin",
+        "runtime": "ShadcnScope CSSStyleSheet/adoptedStyleSheets"
+      },
+      "staticMotion": {
+        "source": "preview/shadcn/transitions/motion.config.mjs",
+        "plugin": "theme/tailwind-motion.mjs",
+        "count": 63,
+        "boundary": "正式插件仅生成keyframes；普通布局/状态仍在JSX工具类。"
+      },
+      "dynamicMotion": {
+        "source": "preview/shadcn/lib/motion-styles.tsx",
+        "model": "结构化MotionFrames",
+        "runtime": "有限CSSOM/adopted sheet，重放/卸载清理；非CSS字符串或脚本逐帧。"
+      },
+      "legacyReference": {
+        "prefix": "mr",
+        "classes": "reference/transitions/classes.mjs",
+        "motion": "reference/transitions/motions.mjs",
+        "generated": [
+          "vendor/motion-reference.css",
+          "vendor/transitions.css"
+        ]
+      },
+      "beam": {
+        "prefix": "bb",
+        "classes": "reference/border-beam/classes.ts",
+        "motion": "reference/border-beam/styles.ts"
+      },
+      "baseAndOrb": {
+        "prefix": "cb",
+        "source": "styles/cohesion-base.css",
+        "classes": "styles/cohesion-base.classes.mjs",
+        "generated": "dist/css/cohesion-base.css",
+        "integration": "消费者加载编译sheet并应用类模块；不自动重置全局body。"
+      },
+      "guard": "scripts/verify-tailwind-sources.mjs",
+      "boundary": "没有新增依赖或UnoCSS；普通规则未藏入rules/@apply；生成CSS/主题变量/第三方样式与结构化关键帧仍保留。",
+      "prefixes": [
+        "doc",
+        "tw",
+        "sc",
+        "mr",
+        "bb",
+        "cb"
+      ],
+      "breakpoints": {
+        "plugin": "theme/tailwind-breakpoints.mjs",
+        "name": "at-most-N",
+        "thresholds": [
+          1250,
+          1199,
+          1100,
+          1023,
+          1000,
+          900,
+          767,
+          700,
+          500,
+          480,
+          440,
+          360
+        ],
+        "entryCount": 5,
+        "cascade": "从宽到窄注册inclusive变体，较窄匹配继续覆盖宽规则；不是arbitrary媒体variant。"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "主按钮",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ant Design 默认尺寸主按钮的静态外观；生产行为由真实 Button 提供。",
+      "html": "<button type=\"button\" class=\"ds-spec-button ds-spec-primary\">保存更改</button>",
+      "css": ".ds-spec-button{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);display:inline-flex;align-items:center;justify-content:center;height:var(--ant-token-control-height, 32px);box-sizing:border-box;padding:0 calc(var(--ant-token-padding-content-horizontal, 16px) - var(--ant-token-line-width, 1px));border:1px solid transparent;border-radius:var(--ant-token-border-radius, 6px);font-weight:400;white-space:nowrap;cursor:pointer;transition:background-color var(--ant-token-motion-duration-mid, 0.2s),border-color var(--ant-token-motion-duration-mid, 0.2s),color var(--ant-token-motion-duration-mid, 0.2s);}.ds-spec-button:focus-visible{outline:2px solid var(--ant-token-color-primary, #167c4b);outline-offset:3px;}.ds-spec-primary{background:var(--ant-token-color-primary, #167c4b);color:var(--ant-token-color-bg-container, #ffffff);box-shadow:0 2px 0 var(--ant-token-control-outline, rgba(17,55,30,0.08));}.ds-spec-primary:hover{background:var(--ant-token-color-primary-hover, #2d8558);}.ds-spec-primary:active{background:var(--ant-token-color-primary-active, #0b5735);}@media(prefers-reduced-motion:reduce){.ds-spec-button,.ds-spec-input{transition:none}}:host-context([data-motion=\"reduced\"]) .ds-spec-button,:host-context([data-motion=\"reduced\"]) .ds-spec-input{transition:none}"
+    },
+    {
+      "name": "默认按钮",
+      "kind": "button",
+      "refersTo": "button-default",
+      "description": "默认尺寸次要操作标本；保留官方 hover、active 与可见焦点外观。",
+      "html": "<button type=\"button\" class=\"ds-spec-button ds-spec-default\">次要操作</button>",
+      "css": ".ds-spec-button{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);display:inline-flex;align-items:center;justify-content:center;height:var(--ant-token-control-height, 32px);box-sizing:border-box;padding:0 calc(var(--ant-token-padding-content-horizontal, 16px) - var(--ant-token-line-width, 1px));border:1px solid transparent;border-radius:var(--ant-token-border-radius, 6px);font-weight:400;white-space:nowrap;cursor:pointer;transition:background-color var(--ant-token-motion-duration-mid, 0.2s),border-color var(--ant-token-motion-duration-mid, 0.2s),color var(--ant-token-motion-duration-mid, 0.2s);}.ds-spec-button:focus-visible{outline:2px solid var(--ant-token-color-primary, #167c4b);outline-offset:3px;}.ds-spec-default{background:var(--ant-token-color-bg-container, #ffffff);color:var(--ant-token-color-text, rgba(0,0,0,0.88));border-color:var(--ant-token-color-border, #d9d9d9);box-shadow:0 2px 0 var(--ant-token-control-tmp-outline, rgba(0,0,0,0.02));}.ds-spec-default:hover{color:var(--ant-token-color-primary-hover, #2d8558);border-color:var(--ant-token-color-primary-hover, #2d8558);}.ds-spec-default:active{color:var(--ant-token-color-primary-active, #0b5735);border-color:var(--ant-token-color-primary-active, #0b5735);}@media(prefers-reduced-motion:reduce){.ds-spec-button,.ds-spec-input{transition:none}}:host-context([data-motion=\"reduced\"]) .ds-spec-button,:host-context([data-motion=\"reduced\"]) .ds-spec-input{transition:none}"
+    },
+    {
+      "name": "默认输入",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "默认输入的标签、占位符与边界静态标本；没有业务校验或提交逻辑。",
+      "html": "<label class=\"ds-spec-field\">名称<input class=\"ds-spec-input\" type=\"text\" placeholder=\"请输入名称\" /></label>",
+      "css": ".ds-spec-field{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);display:flex;flex-direction:column;gap:var(--ant-token-padding-xs, 8px);max-width:280px;color:var(--ant-token-color-text, rgba(0,0,0,0.88));}.ds-spec-input{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);height:var(--ant-token-control-height, 32px);box-sizing:border-box;padding:max(0px, calc((var(--ant-token-control-height, 32px) - var(--ant-token-font-size, 14px) * var(--ant-token-line-height, 1.5714285714285714)) / 2 - var(--ant-token-line-width, 1px))) calc(var(--ant-token-padding-sm, 12px) - var(--ant-token-line-width, 1px));border:1px solid var(--ant-token-color-border, #d9d9d9);border-radius:var(--ant-token-border-radius, 6px);color:var(--ant-token-color-text, rgba(0,0,0,0.88));background:var(--ant-token-color-bg-container, #ffffff);transition:border-color var(--ant-token-motion-duration-mid, 0.2s),box-shadow var(--ant-token-motion-duration-mid, 0.2s);}.ds-spec-input::placeholder{color:var(--ant-token-color-text-placeholder, rgba(0,0,0,0.541));}.ds-spec-input:hover{border-color:var(--ant-token-color-primary-hover, #2d8558);}.ds-spec-input:focus{border-color:var(--ant-token-color-primary, #167c4b);box-shadow:0 0 0 2px var(--ant-token-control-outline, rgba(17,55,30,0.08));}.ds-spec-input:focus-visible{outline:2px solid var(--ant-token-color-primary, #167c4b);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-spec-button,.ds-spec-input{transition:none}}:host-context([data-motion=\"reduced\"]) .ds-spec-button,:host-context([data-motion=\"reduced\"]) .ds-spec-input{transition:none}"
+    },
+    {
+      "name": "文档导航",
+      "kind": "nav",
+      "refersTo": "navigation-current",
+      "description": "当前文档导航的静态状态对照；此标本不提供路由行为。",
+      "html": "<nav class=\"ds-spec-nav\" aria-label=\"文档导航静态标本\"><span class=\"ds-spec-nav-item\" aria-current=\"page\">组件</span><span class=\"ds-spec-nav-item\">场景模式</span></nav>",
+      "css": ".ds-spec-nav{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);display:flex;flex-direction:column;gap:3px;max-width:228px;}.ds-spec-nav-item{display:flex;align-items:center;gap:12px;min-height:40px;padding:10px 15px;border-radius:var(--ant-token-border-radius, 6px);color:var(--ant-token-color-text-secondary, rgba(0,0,0,0.65));}.ds-spec-nav-item[aria-current=\"page\"]{background:var(--ant-token-color-primary-bg, #ecefed);color:var(--ant-token-color-primary, #167c4b);font-weight:500;}"
+    },
+    {
+      "name": "普通标签",
+      "kind": "chip",
+      "refersTo": "tag-default",
+      "description": "非交互分类标签的静态标本，不模拟筛选或点击。",
+      "html": "<span class=\"ds-spec-tag\">产品更新</span>",
+      "css": ".ds-spec-tag{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size-sm, 12px);line-height:calc(var(--ant-token-font-size-sm, 12px) * var(--ant-token-line-height-sm, 1.6666666666666667));display:inline-block;padding:0 7px;border:1px solid var(--ant-token-color-border, #d9d9d9);border-radius:var(--ant-token-border-radius-sm, 4px);background:linear-gradient(var(--ant-token-color-fill-tertiary, rgba(0,0,0,0.04)),var(--ant-token-color-fill-tertiary, rgba(0,0,0,0.04))),var(--ant-token-color-bg-container, #ffffff);color:var(--ant-token-color-text, rgba(0,0,0,0.88));white-space:nowrap;}"
+    },
+    {
+      "name": "文档内容容器",
+      "kind": "card",
+      "refersTo": "surface-panel",
+      "description": "当前文档内容容器的静态标本；不额外添加 hover 或点击行为。",
+      "html": "<article class=\"ds-spec-panel\"><h3 class=\"ds-spec-panel-title\">共享设计基础</h3><p class=\"ds-spec-panel-copy\">内容、工具与服务按任务组合相同规则。</p></article>",
+      "css": ".ds-spec-panel{font-family:var(--ant-token-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');font-size:var(--ant-token-font-size, 14px);line-height:var(--ant-token-line-height, 1.5714285714285714);max-width:320px;padding:var(--ant-token-padding-lg, 24px);border:1px solid var(--ant-token-color-border-secondary, #f0f0f0);border-radius:var(--ant-token-border-radius-lg, 8px);background:var(--ant-token-color-bg-container, #ffffff);color:var(--ant-token-color-text, rgba(0,0,0,0.88));}.ds-spec-panel-title{margin:0 0 var(--ant-token-padding-xs, 8px);font-size:var(--ant-token-font-size-lg, 16px);line-height:1.5;font-weight:var(--ant-token-font-weight-strong, 600);}.ds-spec-panel-copy{margin:0;color:var(--ant-token-color-text-secondary, rgba(0,0,0,0.65));}"
+    },
+    {
+      "name": "shadcn 主按钮",
+      "kind": "button",
+      "refersTo": "shadcn-button-primary",
+      "description": "COHESION 品牌默认按钮的静态标本；保留官方比例，使用独立实体三态与实色焦点。",
+      "html": "<button type=\"button\" class=\"ds-sc-primary\">保存设置</button>",
+      "css": ".ds-sc-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;flex-shrink:0;white-space:nowrap;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';font-size:14px;line-height:20px;font-weight:500;height:36px;padding:8px 16px;border-radius:calc(var(--radius,0.625rem) - 2px);outline:none;transition:all 150ms cubic-bezier(0.4,0,0.2,1);border:0 solid transparent;background:var(--primary,#167c4b);color:var(--primary-foreground,#fff);}.ds-sc-primary:hover{background:var(--primary-hover,#2d8558);}.ds-sc-primary:focus-visible{border-color:var(--ring,#167c4b);box-shadow:0 0 0 2px var(--background,#ffffff),0 0 0 5px var(--ring,#167c4b);}.ds-sc-primary:disabled{pointer-events:none;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-sc-primary{transition-duration:0s;}}.ds-sc-primary:active{background:var(--primary-active,#0b5735);}"
+    },
+    {
+      "name": "shadcn 描边按钮",
+      "kind": "button",
+      "refersTo": "shadcn-button-outline",
+      "description": "浅色 outline variant 的静态标本；使用官方轻边框、微阴影与 accent 悬停。",
+      "html": "<button type=\"button\" class=\"ds-sc-outline\">取消</button>",
+      "css": ".ds-sc-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;flex-shrink:0;white-space:nowrap;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';font-size:14px;line-height:20px;font-weight:500;height:36px;padding:8px 16px;border-radius:calc(var(--radius,0.625rem) - 2px);outline:none;transition:all 150ms cubic-bezier(0.4,0,0.2,1);border:1px solid var(--border,oklch(0.922 0 0));background:var(--background,#ffffff);color:var(--foreground,oklch(0.145 0 0));box-shadow:0 1px 2px 0 rgb(0 0 0 / .05);}.ds-sc-outline:hover{background:var(--accent,#ecefed);color:var(--accent-foreground,#167c4b);}.ds-sc-outline:focus-visible{border-color:var(--ring,#167c4b);box-shadow:0 0 0 2px var(--background,#ffffff),0 0 0 5px var(--ring,#167c4b),0 1px 2px 0 rgb(0 0 0 / .05);}.ds-sc-outline:disabled{pointer-events:none;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-sc-outline{transition-duration:0s;}}"
+    },
+    {
+      "name": "shadcn 输入",
+      "kind": "input",
+      "refersTo": "shadcn-input",
+      "description": "浅色 Label 与 Input 静态标本；含源码焦点、无效与禁用外观，没有校验或保存逻辑。",
+      "html": "<div class=\"ds-sc-field\"><label class=\"ds-sc-label\" for=\"ds-sc-project\">项目名称</label><input class=\"ds-sc-input\" id=\"ds-sc-project\" placeholder=\"输入项目名称\" /></div>",
+      "css": ".ds-sc-field{display:grid;gap:8px;max-width:320px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';color:var(--foreground,oklch(0.145 0 0));}.ds-sc-label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;line-height:1;user-select:none;}.ds-sc-input{box-sizing:border-box;min-width:0;width:100%;height:36px;padding:4px 12px;border:1px solid var(--input,oklch(0.922 0 0));border-radius:calc(var(--radius,0.625rem) - 2px);background:transparent;color:var(--foreground,oklch(0.145 0 0));font-family:inherit;font-size:16px;line-height:24px;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05);outline:none;transition:color 150ms cubic-bezier(0.4,0,0.2,1),box-shadow 150ms cubic-bezier(0.4,0,0.2,1);}.ds-sc-input::placeholder{color:var(--muted-foreground,oklch(0.556 0 0));}.ds-sc-input::selection{background:var(--primary,#167c4b);color:var(--primary-foreground,#fff);}.ds-sc-input:focus-visible{border-color:var(--ring,#167c4b);box-shadow:0 0 0 2px var(--background,#ffffff),0 0 0 5px var(--ring,#167c4b),0 1px 2px 0 rgb(0 0 0 / .05);}.ds-sc-input[aria-invalid=\"true\"]{border-color:var(--destructive,#ca3d3f);--ds-sc-invalid-ring:color-mix(in oklab,var(--destructive,#ca3d3f) 20%,transparent);}.ds-sc-input[aria-invalid=\"true\"]:focus-visible{box-shadow:0 0 0 3px var(--ds-sc-invalid-ring),0 1px 2px 0 rgb(0 0 0 / .05);}.ds-sc-input:disabled{pointer-events:none;cursor:not-allowed;opacity:.5;}@media(min-width:48rem){.ds-sc-input{font-size:14px;line-height:20px;}}@media(prefers-reduced-motion:reduce){.ds-sc-input{transition-duration:0s;}}"
+    },
+    {
+      "name": "shadcn 卡片",
+      "kind": "card",
+      "refersTo": "shadcn-card",
+      "description": "官方 Card、CardHeader 与 CardContent 的静态组合；不额外添加悬停或点击行为。",
+      "html": "<article class=\"ds-sc-card\"><header class=\"ds-sc-card-header\"><h3 class=\"ds-sc-card-title\">工作区偏好</h3><p class=\"ds-sc-card-description\">演示数据 · COHESION 品牌主题</p></header><div class=\"ds-sc-card-content\">按任务组合组件与状态。</div></article>",
+      "css": ".ds-sc-card{display:flex;flex-direction:column;gap:24px;max-width:320px;padding:24px 0;border:1px solid var(--border,oklch(0.922 0 0));border-radius:calc(var(--radius,0.625rem) + 4px);background:var(--card,#ffffff);color:var(--card-foreground,oklch(0.145 0 0));box-shadow:0 1px 3px 0 rgb(0 0 0 / .1),0 1px 2px -1px rgb(0 0 0 / .1);font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';font-size:16px;line-height:24px;}.ds-sc-card-header{display:grid;gap:8px;padding:0 24px;}.ds-sc-card-title{margin:0;font-size:16px;font-weight:600;line-height:1;}.ds-sc-card-description{margin:0;font-size:14px;line-height:20px;color:var(--muted-foreground,oklch(0.556 0 0));}.ds-sc-card-content{padding:0 24px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "专业、现代、多业务通用",
+    "overview": "COHESION 逐科面向内容、工具与服务共用一套清晰、熟悉的界面语言。基础组件保持成熟产品 UI 的比例和操作预期；品牌保留原有 Logo 与固定三色，Ant Design 与 shadcn/ui 的主操作、选中、焦点和相关状态共同读取 COHESION 品牌语义。各业务按任务组织信息和布局。\n\n两套实现分别采用真实 Ant Design 6.6.6 的 defaultAlgorithm、darkAlgorithm、compactAlgorithm，以及 shadcn/ui 的 new-york / neutral / Radix 源码组件与 Tailwind 4.3.3。各自字体、间距、圆角、控件高度、阴影和交互保留官方基础；品牌角色通过正式主题工厂统一派生，shadcn 的官方 Neutral 原值单独保留。系统字体是已确认的基础选择。",
+    "keyCharacteristics": [
+      "双体系可见：Ant Design 与 shadcn/ui 分别提供真实组件、预设与接入入口。",
+      "可追溯基础：两套体系共享品牌来源，运行时主题、CSS 与摘要可追溯到配置、工厂和官方源码。",
+      "多业务共用：内容、工具与服务共享规则，按任务组合页面。",
+      "可控反馈：状态同时使用文字与视觉反馈，动效可暂停。"
+    ],
+    "rules": [
+      {
+        "name": "The Source Rule",
+        "body": "修改各体系的主题源后重新生成对应派生产物与文档摘要；页面和分发包不手写另一套基础 token。",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Color Rule",
+        "body": "Logo 资产色只承担品牌识别；正文、链接、主操作与成功、警告、错误、信息状态读取各自语义 token。",
+        "section": "colors"
+      },
+      {
+        "name": "The Depth Rule",
+        "body": "内容区优先用表面、留白与分隔线组织；菜单、对话框和抽屉的前后关系使用官方浮层 token。",
+        "section": "elevation"
+      },
+      {
+        "name": "The CSS First Rule",
+        "body": "新增动效能用 CSS3 时优先采用过渡或关键帧；需要动态脚本补间时优先 Anime.js，状态与输入事件由 React 负责。",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do 分别通过 createCohesionTheme 或 create-shadcn-theme 的生成变量接入对应体系，保持共享品牌来源与各自官方比例。",
+      "Do 在浅深主题下保留任务结构、状态意义和操作层级；Ant Design 两种密度服从其官方算法。",
+      "Do 为固定独立主题样例隔离 ConfigProvider 继承，并让 shadcn 浮层留在相同主题作用域。",
+      "Do 给表单提供可理解的标签、校验与恢复方式；给图标操作提供可访问名称。",
+      "Do 为触控场景单独保证命中区域，并验证窄屏、键盘、焦点恢复和减少动效。",
+      "Do 在新增交互动效中先采用 CSS3，需要动态脚本补间时优先 Anime.js；保留可见状态与键盘替代。",
+      "Do 明示演示数据与品牌实验的边界，并在真实产品接入后验证其设备与辅助技术范围。"
+    ],
+    "donts": [
+      "Don't 用 Logo 三色直接替代正文、链接、表单状态或主按钮语义。",
+      "Don't 将深色种子当成最终派生主色，或省略深色 Button.primaryColor 的配对。",
+      "Don't 把官方 Neutral 原值误写成当前品牌成品，也不要把 Ant Design 的 compactAlgorithm、reset 或组件尺寸套到 shadcn。",
+      "Don't 逐页重设字体、圆角、色阶或控件高度，以免绕过官方算法和统一修正。",
+      "Don't 将文档站外壳、静态标本或移动 Web 演示当作所有业务和原生平台的强制模板。",
+      "Don't 仅用颜色或动画传达结果，也不要在暂停或系统减少动效时继续运行循环。",
+      "Don't 将自主 Transitions 扩展标记为官方 Pro 源码，或将历史参考 iframe 当成 shadcn 组件实现。",
+      "Don't 将现有对比度与浏览器检查表述为完整 WCAG 符合性或全部平台实现。"
+    ]
+  }
+}
