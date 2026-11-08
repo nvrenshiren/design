@@ -4,3 +4,4 @@
 @source "./src";
 @source "../index.html";
 @plugin "../theme/tailwind-breakpoints.mjs";
+@plugin "../theme/tailwind-cohesion-motion.mjs";

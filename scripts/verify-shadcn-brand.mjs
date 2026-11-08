@@ -222,6 +222,48 @@ try {
   await view.waitFor();
   await page.waitForFunction(() => document.documentElement.dataset.theme && document.documentElement.dataset.density);
 
+  await test('shadcn controls have valid IDs, connected labels and descriptions', async () => {
+    const checkIds = async locator => locator.evaluate(element => {
+      const root = element.getRootNode();
+      const ids = [...root.querySelectorAll('[id]')].map(node => node.id);
+      return {
+        invalid: ids.filter(id => /\s/.test(id)),
+        duplicates: ids.filter((id, index) => ids.indexOf(id) !== index),
+      };
+    });
+    const described = async locator => locator.evaluate(element => {
+      const root = element.getRootNode();
+      const ids = (element.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+      return ids.map(id => root.getElementById(id)?.textContent.trim() || null);
+    });
+    await page.getByRole('tab', { name: '预设与 token', exact: true }).click();
+    const tokenSearch = view.locator('#sc-token-search-input');
+    await tokenSearch.waitFor({ state: 'visible' });
+    const label = await tokenSearch.evaluate(element => [...element.getRootNode().querySelectorAll('label')]
+      .find(candidate => candidate.htmlFor === element.id)?.textContent.trim());
+    assert.equal(label, '搜索 token', 'Token search has no associated label');
+    assert.deepEqual(await described(tokenSearch), ['当前显示 41 / 41 个变量。']);
+    assert.deepEqual(await checkIds(tokenSearch), { invalid: [], duplicates: [] });
+
+    await page.getByRole('tab', { name: '组件与状态', exact: true }).click();
+    const disabledId = view.locator('#sc-space-id');
+    const notify = view.locator('#sc-demo-notify');
+    const channels = view.locator('[data-slot="field-set"]').first();
+    assert.deepEqual(await described(disabledId), ['禁用态说明当前不可编辑。']);
+    assert.deepEqual(await described(notify), ['当前已开启，可随时关闭。']);
+    assert.ok((await described(channels))[0]?.startsWith('可多选，当前选择'));
+    assert.deepEqual(await checkIds(disabledId), { invalid: [], duplicates: [] });
+
+    await page.getByRole('tab', { name: '产品组合', exact: true }).click();
+    const weekly = view.locator('#sc-profile-weekly');
+    const subscriptions = view.locator('[data-slot="field-set"]').first();
+    assert.deepEqual(await described(weekly), ['每周汇总已订阅业务的更新。']);
+    assert.deepEqual(await described(subscriptions), ['选择希望在摘要中看到的信息。']);
+    assert.deepEqual(await checkIds(weekly), { invalid: [], duplicates: [] });
+    await page.getByRole('tab', { name: '组件与状态', exact: true }).click();
+    return { labels: 1, descriptions: 5, duplicateIds: 0, invalidIds: 0 };
+  });
+
   await test('shared brand factory, snapshot, public JSON and public CSS agree', async () => {
     const [jsonResponse, cssResponse] = await Promise.all([
       page.request.get(`${baseUrl}/theme/shadcn-tokens.json`),

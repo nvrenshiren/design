@@ -118,7 +118,7 @@
 
 ### 当前截图
 
-本轮捕获 15 张当前 Chromium 截图，清单保存在本地 `fidelity-transitions-captures.json`；公开副本均位于 `docs/transition-assets/`。桌面为 1440px 宽、手机为 375px 宽，另记录 1264×712 的实际用户视口及 10 个关键交互状态。
+本轮捕获 15 张 Chromium 截图，清单保存在本地 `fidelity-transitions-captures.json`；公开副本均位于 `docs/transition-assets/`。桌面为 1440px 宽、手机为 375px 宽，另记录 1264×712 的实际用户视口及 10 个关键交互状态。
 
 | 视图 | 公开证据 |
 | --- | --- |

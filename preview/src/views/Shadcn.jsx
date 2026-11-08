@@ -19,6 +19,7 @@ import { ShadcnScope } from "../../shadcn/scope";
 import { TransitionsGallery } from "../../shadcn/transitions/gallery";
 import { Button } from "../../shadcn/components/ui/button";
 import { Badge } from "../../shadcn/components/ui/badge";
+import { Avatar, AvatarBadge, AvatarFallback } from "../../shadcn/components/ui/avatar";
 import {
   Card,
   CardContent,
@@ -331,14 +332,15 @@ function TokenView() {
         </div>
         <FieldGroup className="sc-token-search sc:max-w-[440px]">
           <Field>
-            <FieldLabel htmlFor="sc-token-search sc:max-w-[440px]">搜索 token</FieldLabel>
+            <FieldLabel htmlFor="sc-token-search-input">搜索 token</FieldLabel>
             <Input
-              id="sc-token-search sc:max-w-[440px]"
+              id="sc-token-search-input"
               placeholder="例如 primary、sidebar、表面"
               value={query}
+              aria-describedby="sc-token-search-help"
               onChange={(event) => setQuery(event.target.value)}
             />
-            <FieldDescription>
+            <FieldDescription id="sc-token-search-help">
               当前显示 {count} / {tokens.length} 个变量。
             </FieldDescription>
           </Field>
@@ -664,8 +666,15 @@ function InputExample({ announce }) {
             </Field>
             <Field data-disabled>
               <FieldLabel htmlFor="sc-space-id">空间标识</FieldLabel>
-              <Input id="sc-space-id" value="cohesion-demo" disabled />
-              <FieldDescription>禁用态说明当前不可编辑。</FieldDescription>
+              <Input
+                id="sc-space-id"
+                value="cohesion-demo"
+                aria-describedby="sc-space-id-help"
+                disabled
+              />
+              <FieldDescription id="sc-space-id-help">
+                禁用态说明当前不可编辑。
+              </FieldDescription>
             </Field>
           </FieldGroup>
         </form>
@@ -874,7 +883,7 @@ function ComponentView() {
               <Field orientation="horizontal">
                 <FieldContent>
                   <FieldLabel htmlFor="sc-demo-notify">接收产品更新</FieldLabel>
-                  <FieldDescription>
+                  <FieldDescription id="sc-demo-notify-help">
                     {notify
                       ? "当前已开启，可随时关闭。"
                       : "当前已关闭，不接收演示更新。"}
@@ -883,13 +892,14 @@ function ComponentView() {
                 <Switch
                   id="sc-demo-notify"
                   checked={notify}
+                  aria-describedby="sc-demo-notify-help"
                   onCheckedChange={setNotify}
                 />
               </Field>
               <Separator />
-              <FieldSet>
+              <FieldSet aria-describedby="sc-channel-group-help">
                 <FieldLegend variant="label">发布渠道</FieldLegend>
-                <FieldDescription>
+                <FieldDescription id="sc-channel-group-help">
                   可多选，当前选择 {channels.length} 项。
                 </FieldDescription>
                 <FieldGroup>
@@ -1121,7 +1131,7 @@ function PatternView() {
     service: "生活服务",
   };
   return (
-    <div className="sc-panel-stack sc:flex sc:flex-col sc:gap-8 sc:pt-6 sc:min-w-0 sc:at-most-767:gap-[26px] sc:at-most-767:pt-[22px]" data-shadcn-patterns>
+    <div className="sc-panel-stack sc:flex sc:flex-col sc:gap-6 sc:pt-4 sc:min-w-0 sc:at-most-767:gap-5 sc:at-most-767:pt-4" data-shadcn-patterns>
       <div className="sc-section-intro">
         <h2>把组件组合成完整任务</h2>
         <p>
@@ -1232,20 +1242,21 @@ function PatternView() {
                     <FieldLabel htmlFor="sc-profile-weekly">
                       每周工作摘要
                     </FieldLabel>
-                    <FieldDescription>
+                    <FieldDescription id="sc-profile-weekly-help">
                       每周汇总已订阅业务的更新。
                     </FieldDescription>
                   </FieldContent>
                   <Switch
                     id="sc-profile-weekly"
                     checked={form.weekly}
+                    aria-describedby="sc-profile-weekly-help"
                     onCheckedChange={(value) => update("weekly", value)}
                     disabled={saving}
                   />
                 </Field>
-                <FieldSet>
+                <FieldSet aria-describedby="sc-profile-channels-help">
                   <FieldLegend variant="label">订阅内容</FieldLegend>
-                  <FieldDescription>
+                  <FieldDescription id="sc-profile-channels-help">
                     选择希望在摘要中看到的信息。
                   </FieldDescription>
                   <FieldGroup>
@@ -1312,20 +1323,23 @@ function PatternView() {
             </div>
           </CardFooter>
         </Card>
-        <aside className="sc-stack sc:flex sc:flex-col sc:gap-[18px] sc:min-w-0">
+        <aside className="sc-stack sc:flex sc:flex-col sc:gap-[18px] sc:min-w-0 sc:sticky sc:top-24 sc:self-start sc:at-most-767:static">
           <Card>
             <CardHeader>
               <CardTitle>资料预览</CardTitle>
               <CardDescription>随着表单即时更新。</CardDescription>
             </CardHeader>
             <CardContent className="sc-stack sc:flex sc:flex-col sc:gap-[18px] sc:min-w-0">
-              <div className="sc-inline sc:flex sc:items-center sc:gap-[10px] sc:min-w-0">
-                <Badge variant="secondary">
-                  {form.name.trim().slice(0, 1) || "你"}
-                </Badge>
-                <div>
-                  <strong>{form.name.trim() || "等待填写名称"}</strong>
-                  <p className="sc-muted sc:text-muted-foreground sc:[font-size:13px] sc:leading-[1.65]">
+              <div className="sc-inline sc:flex sc:items-center sc:gap-4 sc:min-w-0">
+                <Avatar size="lg" className="sc:ring-2 sc:ring-background sc:shadow-sm">
+                  <AvatarFallback className="sc:bg-primary/10 sc:text-primary sc:font-semibold">
+                    {form.name.trim().slice(0, 1) || "你"}
+                  </AvatarFallback>
+                  <AvatarBadge aria-hidden="true" />
+                </Avatar>
+                <div className="sc:min-w-0">
+                  <strong className="sc:block sc:[font-size:16px] sc:font-semibold sc:leading-[1.4]">{form.name.trim() || "等待填写名称"}</strong>
+                  <p className="sc-muted sc:mt-1 sc:text-muted-foreground sc:[font-size:13px] sc:leading-[1.65] sc:[overflow-wrap:anywhere]">
                     {form.email.trim() || "等待填写邮箱"}
                   </p>
                 </div>
@@ -1353,17 +1367,17 @@ function PatternView() {
               <Badge variant="outline">演示账户</Badge>
             </CardFooter>
           </Card>
-          <Alert>
-            <Settings2 />
-            <AlertTitle>一套独立的组件体系</AlertTitle>
-            <AlertDescription>
-              此设置页由 shadcn/ui 的
-              Card、Field、Input、Select、Switch、Checkbox、Textarea、Button 与
-              Alert 组成，使用逐科品牌语义主题。
-            </AlertDescription>
-          </Alert>
         </aside>
       </div>
+      <Alert>
+        <Settings2 />
+        <AlertTitle>一套独立的组件体系</AlertTitle>
+        <AlertDescription>
+          此设置页由 shadcn/ui 的
+          Card、Field、Input、Select、Switch、Checkbox、Textarea、Button 与
+          Alert 组成，使用逐科品牌语义主题。
+        </AlertDescription>
+      </Alert>
     </div>
   );
 }
@@ -1385,14 +1399,18 @@ export default function ShadcnView({
   };
   return (
     <section className="ds-view" data-shadcn-view>
-      <header className="ds-page-heading tw:max-w-[760px] tw:[&_h1]:m-[0_0_12px] tw:[&_>_p]:m-0 tw:mb-9 tw:[&_h1]:[font-size:var(--ant-token-font-size-heading1,_38px)] tw:[&_h1]:[font-weight:var(--ds-strong)] tw:[&_h1]:leading-[1.23] tw:[&_h1]:mb-4 tw:[&_h1]:[letter-spacing:-.025em] tw:[&_>_p]:text-[var(--ds-muted)] tw:[&_>_p]:max-w-[70ch] tw:[&_>_p]:[font-size:15px] tw:[&_>_p]:leading-[1.8] tw:[&_>_p]:mb-0 tw:at-most-767:[&_h1]:[font-size:30px] tw:at-most-767:[&_>_p]:text-sm">
+      <header className="ds-page-heading tw:max-w-[760px] tw:[&_h1]:m-[0_0_12px] tw:[&_>_p]:m-0 tw:mb-7 tw:[&_h1]:[font-size:var(--ant-token-font-size-heading1,_38px)] tw:[&_h1]:[font-weight:var(--ds-strong)] tw:[&_h1]:leading-[1.23] tw:[&_h1]:mb-4 tw:[&_h1]:[letter-spacing:-.025em] tw:[&_>_p]:text-[var(--ds-muted)] tw:[&_>_p]:max-w-[70ch] tw:[&_>_p]:[font-size:15px] tw:[&_>_p]:leading-[1.8] tw:[&_>_p]:mb-0 tw:at-most-767:[&_h1]:[font-size:30px] tw:at-most-767:[&_>_p]:text-sm">
         <h1>shadcn/ui</h1>
         <p>
           以真实 shadcn/ui 组件承载逐科品牌主题，与 Ant Design 共享品牌语义。
           按产品场景选用生态，保留各自的组件比例和交互。
         </p>
       </header>
-      <ShadcnScope mode={mode} stopped={stopped}>
+      <ShadcnScope
+        mode={mode}
+        stopped={stopped}
+        className={mode === "light" ? "sc:bg-transparent! sc:border-0 sc:rounded-none sc:shadow-none sc:p-0" : undefined}
+      >
         <div className="sc-showcase sc:min-w-0 sc:pt-1 sc:[&_:where(h2)]:[font-size:22px] sc:[&_:where(h2)]:leading-[1.4] sc:[&_:where(h2)]:font-semibold sc:[&_:where(h2)]:m-[0_0_8px] sc:[&_:where(h3)]:[font-size:16px] sc:[&_:where(h3)]:leading-[1.5] sc:[&_:where(h3)]:font-semibold sc:[&_:where(h3)]:m-[0_0_12px] sc:[&_:where(p)]:m-0 sc:[&_[data-slot='field-description']]:m-0! sc:[&_.sc-section-intro_p]:text-muted-foreground sc:[&_.sc-section-intro_p]:leading-[1.75] sc:[&_.sc-section-intro_p]:max-w-[76ch] sc:at-most-767:[&_h2]:[font-size:20px]">
           <div className="sc-inline sc:flex sc:items-center sc:gap-[10px] sc:min-w-0 sc-wrap sc:flex-wrap sc-mode-note sc:mb-5">
             <Badge variant="outline">New York / COHESION</Badge>

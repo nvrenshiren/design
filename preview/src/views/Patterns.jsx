@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert, App, Avatar, Badge, Button, Checkbox, Descriptions, Drawer, Empty,
-  Form, Input, Modal, Radio, Select, Space, Switch, Table, Tabs, Tag, theme,
+  Form, Input, Modal, Progress, Radio, Select, Space, Switch, Table, Tabs, Tag, theme,
 } from 'antd';
 import {
   ArrowRightOutlined, BellOutlined, CalendarOutlined, CheckCircleOutlined,
@@ -205,6 +205,59 @@ function MobilePattern() {
   </>;
 }
 
+function CommercialPattern() {
+  const { message } = App.useApp();
+  const [ctaOpen, setCtaOpen] = useState(false);
+  const scrollTo = id => document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+  const features = [
+    { number: '01', title: '先讲清楚价值', text: '首屏用一句具体主张回答：产品帮助谁，解决什么问题。' },
+    { number: '02', title: '再建立可信度', text: '用真实功能、流程和项目证据支撑主张，避免空泛装饰。' },
+    { number: '03', title: '让下一步明确', text: '预约、试用或购买只保留清晰的主操作，并及时说明结果。' },
+  ];
+  return <>
+    <div className="ds-pattern-workspace tw:overflow-hidden tw:p-0 tw:[border:1px_solid_var(--ds-example-border)] tw:bg-[var(--ds-example-bg)] tw:rounded-[var(--ds-example-radius,12px)] tw:min-w-0">
+      <div className="ds-commercial-nav tw:flex tw:items-center tw:justify-between tw:gap-4 tw:p-[18px_28px] tw:[border-bottom:1px_solid_var(--ds-example-border)] tw:at-most-700:px-5">
+        <div className="tw:flex tw:items-center tw:gap-3"><span className="tw:grid tw:size-9 tw:place-items-center tw:rounded-[10px] tw:text-white tw:[background:linear-gradient(140deg,#167C4B,#17A4BD)] tw:font-semibold">C</span><div className="tw:flex tw:flex-col"><strong className="tw:[font-size:13px] tw:tracking-[.04em]">CLIENT BRAND</strong><span className="tw:text-[var(--ds-example-muted)] tw:[font-size:10px]">品牌标识示意，可替换为客户资产</span></div></div>
+        <nav className="tw:flex tw:items-center tw:gap-6 tw:text-[var(--ds-example-muted)] tw:[font-size:12px] tw:at-most-700:hidden" aria-label="商业展示页面示意导航"><button type="button" className="tw:border-0 tw:bg-transparent tw:p-0 tw:[font:inherit] tw:text-inherit tw:cursor-pointer tw:[&:hover]:text-[var(--ds-example-primary)] tw:[&:focus-visible]:[outline:2px_solid_var(--ds-example-primary)] tw:[&:focus-visible]:[outline-offset:3px]" onClick={() => scrollTo('commercial-value')}>产品价值</button><button type="button" className="tw:border-0 tw:bg-transparent tw:p-0 tw:[font:inherit] tw:text-inherit tw:cursor-pointer tw:[&:hover]:text-[var(--ds-example-primary)] tw:[&:focus-visible]:[outline:2px_solid_var(--ds-example-primary)] tw:[&:focus-visible]:[outline-offset:3px]" onClick={() => scrollTo('commercial-proof')}>如何工作</button><Button size="small" type="primary" onClick={() => setCtaOpen(true)}>预约交流</Button></nav>
+        <Button className="tw:hidden tw:at-most-700:inline-flex" size="small" type="primary" onClick={() => setCtaOpen(true)}>预约交流</Button>
+      </div>
+      <section id="commercial-value" className="ds-commercial-hero tw:grid tw:[grid-template-columns:1.04fr_.96fr] tw:gap-10 tw:items-center tw:p-[52px_42px] tw:[background:radial-gradient(ellipse_at_88%_5%,color-mix(in_srgb,var(--ds-example-primary)_12%,transparent),transparent_36%),linear-gradient(145deg,var(--ds-example-bg),var(--ds-example-subtle))] tw:at-most-1000:gap-7 tw:at-most-1000:p-8 tw:at-most-700:[grid-template-columns:1fr] tw:at-most-700:p-6">
+        <div className="tw:min-w-0">
+          <Tag color="processing">商业展示 · 页面组合示意</Tag>
+          <h2 className="tw:max-w-[13ch] tw:m-[22px_0_14px] tw:[font-size:clamp(30px,4vw,48px)] tw:leading-[1.12] tw:[letter-spacing:-.045em] tw:font-semibold">让复杂协作，回到清晰的下一步。</h2>
+          <p className="tw:max-w-[52ch] tw:m-0 tw:text-[var(--ds-example-muted)] tw:[font-size:14px] tw:leading-[1.85]">商业页面先讲清产品价值，再用真实功能和内容建立信任。逐科品牌项目沿用 COHESION 识别；客户项目将客户品牌映射到相同的语义角色。</p>
+          <div className="tw:flex tw:items-center tw:gap-3 tw:flex-wrap tw:mt-7"><Button type="primary" size="large" onClick={() => setCtaOpen(true)}>预约产品演示 <ArrowRightOutlined /></Button><Button size="large" onClick={() => message.info('此处可连接功能介绍、案例说明或产品文档。')}>了解产品</Button></div>
+          <div className="tw:flex tw:items-center tw:gap-2 tw:mt-6 tw:text-[var(--ds-example-muted)] tw:[font-size:11px]"><CheckCircleOutlined className="tw:text-[var(--ds-example-primary)]" />主张、证据与转化入口保持同一条阅读路径</div>
+        </div>
+        <div className="ds-commercial-product tw:relative tw:isolate tw:min-h-[300px] tw:overflow-hidden tw:rounded-[16px] tw:p-5 tw:text-white tw:[background:linear-gradient(145deg,#102326,#15392F_58%,#143D48)] tw:[box-shadow:0_26px_60px_-38px_rgba(16,35,38,.65)] tw:at-most-700:min-h-[260px]">
+          <div className="tw:absolute tw:right-[-44px] tw:top-[-72px] tw:size-[220px] tw:rounded-full tw:[border:1px_solid_rgba(141,230,185,.18)] tw:[box-shadow:0_0_0_24px_rgba(141,230,185,.04),0_0_0_48px_rgba(141,230,185,.03)]" aria-hidden="true" />
+          <div className="tw:relative tw:z-1 tw:flex tw:items-center tw:justify-between tw:gap-3"><span className="tw:text-[rgba(255,255,255,.68)] tw:[font-size:10px] tw:[letter-spacing:.12em]">PRODUCT OVERVIEW / SAMPLE</span><Tag className="tw:m-0! tw:bg-[rgba(141,230,185,.12)]! tw:text-[#A4ECC6]! tw:border-[rgba(164,236,198,.3)]!">交互示意</Tag></div>
+          <div className="tw:relative tw:z-1 tw:mt-10 tw:rounded-[12px] tw:p-4 tw:[border:1px_solid_rgba(255,255,255,.12)] tw:bg-[rgba(255,255,255,.07)] tw:[backdrop-filter:blur(12px)]">
+            <div className="tw:flex tw:items-center tw:justify-between tw:gap-3 tw:mb-5"><div><span className="tw:block tw:text-[rgba(255,255,255,.62)] tw:[font-size:10px]">工作空间</span><strong className="tw:block tw:mt-1 tw:[font-size:15px]">每个项目，都有清楚进展</strong></div><Avatar.Group size="small"><Avatar>林</Avatar><Avatar>周</Avatar><Avatar>陈</Avatar></Avatar.Group></div>
+            {[['产品体验更新', 76], ['内容上线准备', 48], ['服务流程梳理', 92]].map(([label, percent]) => <div className="tw:mb-4 last:mb-0" key={label}><div className="tw:flex tw:justify-between tw:gap-3 tw:mb-[7px] tw:text-[11px]"><span className="tw:text-[rgba(255,255,255,.82)]">{label}</span><span className="tw:text-[rgba(255,255,255,.58)] tw:tabular-nums">{percent}%</span></div><Progress percent={percent} showInfo={false} size="small" strokeColor="#8DE6B9" trailColor="rgba(255,255,255,.14)" /></div>)}
+          </div>
+          <div className="tw:relative tw:z-1 tw:flex tw:justify-between tw:gap-3 tw:mt-4 tw:text-[10px] tw:text-[rgba(255,255,255,.6)]"><span>产品画面以真实能力为依据</span><span>示意数据</span></div>
+        </div>
+      </section>
+      <section id="commercial-proof" className="ds-commercial-values tw:grid tw:[grid-template-columns:repeat(3,minmax(0,1fr))] tw:gap-5 tw:p-[28px_32px_32px] tw:at-most-700:[grid-template-columns:1fr] tw:at-most-700:gap-0 tw:at-most-700:p-[8px_24px_20px]">
+        {features.map(item => <article key={item.number} className="tw:min-w-0 tw:p-[15px_12px] tw:[border-top:1px_solid_var(--ds-example-border)]"><span className="tw:text-[var(--ds-example-primary)] tw:[font-size:10px] tw:[letter-spacing:.1em]">{item.number} / PRINCIPLE</span><h3 className="tw:m-[10px_0_6px] tw:[font-size:14px] tw:font-semibold">{item.title}</h3><p className="tw:m-0 tw:text-[var(--ds-example-muted)] tw:[font-size:12px] tw:leading-[1.8]">{item.text}</p></article>)}
+      </section>
+    </div>
+    <div className="ds-pattern-caption tw:flex tw:gap-6 tw:flex-wrap tw:items-start tw:m-[18px_0_0] tw:text-[var(--ds-example-muted)] tw:[font-size:13px] tw:leading-[1.8] tw:[&_strong]:font-medium tw:[&_strong]:text-[var(--ds-example-text)] tw:at-most-700:gap-2 tw:at-most-700:flex-col"><span><strong>适用于</strong> 商业展示页、产品介绍、服务落地页与客户提案。</span><span><strong>组件基座</strong> 当前用 Ant Design 构成可操作示意；客户项目按自身技术栈选型。</span><span><strong>品牌边界</strong> 结构和体验规则可复用；客户项目替换为客户 Logo、品牌色、字体和真实内容。</span></div>
+    <Modal title="转化入口示意" open={ctaOpen} onCancel={() => setCtaOpen(false)} onOk={() => { setCtaOpen(false); message.success('这是交互示意；接入项目需连接真实预约或销售流程。'); }} okText="确认示意" cancelText="返回">
+      <p className="ds-muted tw:[font-size:13px] tw:leading-[1.8]">正式项目可在此连接预约表单、试用申请、咨询或购买流程，并提供清晰的隐私说明与提交反馈。</p>
+    </Modal>
+  </>;
+}
+
 export default function PatternsView() {
-  return <div className="ds-patterns-view tw:text-[var(--ds-example-text)] tw:min-w-0 tw:motion-reduce:[&_*]:[scroll-behavior:auto]!" style={useSurfaceTokens()}><header className="ds-page-heading tw:max-w-[760px] tw:[&_h1]:m-[0_0_12px] tw:[&_>_p]:m-0 tw:mb-9 tw:[&_h1]:[font-size:var(--ant-token-font-size-heading1,_38px)] tw:[&_h1]:[font-weight:var(--ds-strong)] tw:[&_h1]:leading-[1.23] tw:[&_h1]:mb-4 tw:[&_h1]:[letter-spacing:-.025em] tw:[&_>_p]:text-[var(--ds-muted)] tw:[&_>_p]:max-w-[70ch] tw:[&_>_p]:[font-size:15px] tw:[&_>_p]:leading-[1.8] tw:[&_>_p]:mb-0 tw:at-most-767:[&_h1]:[font-size:30px] tw:at-most-767:[&_>_p]:[font-size:14px]"><h1>场景模式</h1><p>把统一的组件和状态放进真实任务，验证它们如何共同工作。所有业务内容均为演示数据。</p></header><Tabs className="ds-category-tabs tw:min-w-0" classNames={{ header: "tw:mb-7" }} defaultActiveKey="content" items={[{ key: 'content', label: '内容管理', children: <ContentPattern /> }, { key: 'settings', label: '资料与偏好', children: <SettingsPattern /> }, { key: 'mobile', label: '移动服务', children: <MobilePattern /> }]} /></div>;
+  return <div className="ds-patterns-view tw:text-[var(--ds-example-text)] tw:min-w-0 tw:motion-reduce:[&_*]:[scroll-behavior:auto]!" style={useSurfaceTokens()}>
+    <header className="ds-page-heading tw:max-w-[760px] tw:[&_h1]:m-[0_0_12px] tw:[&_>_p]:m-0 tw:mb-9 tw:[&_h1]:[font-size:var(--ant-token-font-size-heading1,_38px)] tw:[&_h1]:[font-weight:var(--ds-strong)] tw:[&_h1]:leading-[1.23] tw:[&_h1]:mb-4 tw:[&_h1]:[letter-spacing:-.025em] tw:[&_>_p]:text-[var(--ds-muted)] tw:[&_>_p]:max-w-[70ch] tw:[&_>_p]:[font-size:15px] tw:[&_>_p]:leading-[1.8] tw:[&_>_p]:mb-0 tw:at-most-767:[&_h1]:[font-size:30px] tw:at-most-767:[&_>_p]:[font-size:14px]"><h1>场景模式</h1><p>把统一的组件和状态放进真实任务，验证它们如何共同工作。所有业务内容均为演示数据。</p></header>
+    <Tabs className="ds-category-tabs tw:min-w-0" classNames={{ header: "tw:mb-7" }} defaultActiveKey="content" items={[
+      { key: 'content', label: '内容管理', children: <ContentPattern /> },
+      { key: 'settings', label: '资料与偏好', children: <SettingsPattern /> },
+      { key: 'mobile', label: '移动服务', children: <MobilePattern /> },
+      { key: 'commercial', label: '商业展示', children: <CommercialPattern /> },
+    ]} />
+  </div>;
 }

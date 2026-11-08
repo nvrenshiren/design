@@ -1,10 +1,14 @@
 # COHESION 2.0 · 主题与参考资源
 
-这是一套可复制的主题、Token 与品牌动效参考资源。此目录的主题配置对应 **Ant Design 6.6.6**，需要由应用安装并通过 `ConfigProvider` 接入；此目录没有独立打包出一套替代 Ant Design 的完整组件库。
+这是一套可复制的主题、Token 与品牌动效参考资源。此目录的主题配置对应 **Ant Design 6.6.8**，需要由应用安装并通过 `ConfigProvider` 接入；此目录没有独立打包出一套替代 Ant Design 的完整组件库。
 
 正式配置为源仓库的 `theme/cohesion-theme.json`，主题工厂为 `theme/create-theme.mjs`。Token CSS／JSON 通过 `node scripts/generate-antd-tokens.mjs` 生成，`--check` 校验派生结果与镜像；请从正式来源修改，不直接编辑生成文件。
 
 shadcn/ui 的真实源码和官方 Neutral 预设在源仓库的 `preview/shadcn/` 与 `theme/shadcn-tokens.json`；它通过官方 CLI 接入目标产品，未在本目录重复打包。完整说明见源仓库 README。
+
+## 产品类型与品牌边界
+
+资源可作为管理后台、C 端产品、服务体验与商业展示项目的设计参考。后台优先评估 Ant Design 的数据与任务组件；定制型 C 端页面可评估 shadcn/ui；商业页面按既有技术栈、复杂度和维护能力选择主要组件体系，并在一个产品内保持一致。逐科自有产品沿用 COHESION 识别；客户品牌项目复用语义映射、状态、交互与动效方法，默认保留客户自己的 Logo、品牌色、字体和内容。完整的项目选型、场景组合和跨端适配原则见源仓库 [README](../README.md)、[DESIGN](../DESIGN.md) 与 [跨端适配](../platforms.md)。
 
 ## 目录
 
@@ -12,7 +16,9 @@ shadcn/ui 的真实源码和官方 Neutral 预设在源仓库的 `preview/shadcn
 dist/
 ├── theme/                          主题配置与运行时工厂
 │   ├── cohesion-theme.json
-│   └── create-theme.mjs
+│   ├── create-theme.mjs
+│   ├── cohesion-motion.mjs
+│   └── tailwind-cohesion-motion.mjs
 ├── tokens/
 │   ├── cohesion-tokens.css         四种模式的变量与旧版兼容别名
 │   └── cohesion-tokens.json        官方基线、定制结果、差异与检查记录
@@ -25,6 +31,8 @@ dist/
 │   ├── orbs-presets.js
 │   ├── border-beam.js
 │   └── transitions.js              历史动效参考编排
+├── graphics/
+│   └── cohesion-field.svg          可选的静态连接线背景素材
 ├── css/
 │   ├── cohesion-base.css           可选 cb: Tailwind 工具类生成物
 │   ├── cohesion-base.classes.mjs   根节点、正文与 Orb 的类组合
@@ -37,7 +45,7 @@ dist/
 把 `theme/` 复制到应用源码目录。预览基线的依赖版本如下；产品应用使用自身的 React 实例，不额外加载预览的 React UMD 文件。
 
 ```sh
-pnpm add --save-exact antd@6.6.6 @ant-design/icons@6.3.4 react@18.3.1 react-dom@18.3.1
+pnpm add --save-exact antd@6.6.8 @ant-design/icons@6.3.4 react@18.3.1 react-dom@18.3.1
 ```
 
 ```jsx
@@ -98,6 +106,31 @@ import { cohesionBaseClasses } from './cohesion/css/cohesion-base.classes.mjs';
 预编译 `cohesion-base.css` 仅包含 `cb:` 工具类，不会自动重置全局 `body` 或第三方组件。根节点使用 `cohesionBaseClasses.root`，正文使用 `cohesionBaseClasses.body`；应用自己的 Tailwind 类仍由应用构建。
 
 主题由 `data-theme="light|dark"`、密度由 `data-density="comfortable|compact"` 选择。应用同时使用 `ConfigProvider` 和 CSS 导出时，应保持两者模式一致。
+
+## 产品级动效配方
+
+Tailwind v4 项目可在 CSS 入口加载共享动效插件：
+
+```css
+@plugin "./cohesion/theme/tailwind-cohesion-motion.mjs";
+```
+
+根据场景，在产品源码中按需使用以下类；它们只定义动效，不提供组件布局：
+
+```jsx
+<main key={route.id} className="cohesion-motion-page">{page}</main>
+<Card className="cohesion-motion-card">...</Card>
+<div className="cohesion-motion-dialog-content">...</div>
+<span className="cohesion-motion-menu-item" style={{ '--cohesion-motion-delay': '24ms' }}>...</span>
+```
+
+页面内容淡入并上移 8px（240ms）；弹窗／抽屉正文轻入（220ms）；菜单与 Select 选项淡入并轻微移动（180ms，短菜单错峰最多 24ms／项、总计不超过 90ms）；可操作卡片在 hover 或 focus-within 时上移 3px。长列表、表格与密集菜单不逐项播放。Select 可用 Ant Design `optionRender` 将选项内容包入 `cohesion-motion-select-option`，并按索引设置错峰延迟。
+
+浏览器系统减少动效会自动静止这些配方。用户级暂停时，应用还应在主题根节点设置 `data-motion="reduced"`；同时将 `reducedMotion: true` 传给 `createCohesionTheme`。卡片会保持原位，出入场直接呈现最终状态。Tailwind v3 项目可把插件作为配置的 `plugins` 项加载；两种版本都由应用已有的 Tailwind 编译，无新增运行时依赖。
+
+## 可选品牌背景素材
+
+`graphics/cohesion-field.svg` 是静态、透明背景的连接线与节点图形，适合放在概览或品牌介绍的画布层。将它作为 `background-image` 并限制在低对比度区域；正文表面、密集数据和功能状态不要叠加纹理。深色主题需降低显示强度，装饰图形不应传达任何状态含义。
 
 CSS 提供变量与旧版 `--color-*`、`--zk-*`、组件别名的兼容映射，不会提供表单验证、焦点管理、键盘操作或完整组件样式。JSON 是本项目的四模式派生快照，不是 DTCG 标准或可直接运行的原生平台资源。
 

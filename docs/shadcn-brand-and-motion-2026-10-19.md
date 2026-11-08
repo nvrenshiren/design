@@ -1,8 +1,10 @@
-# shadcn/ui 品牌主题与组件动效修正
+# shadcn/ui 品牌主题与组件动效修正（历史记录）
 
 日期：2026-10-19。
 
 用户指出“之前的组件动效以及 shadcn/ui 的色系配置不对”。本次按整套公司设计系统共用品牌语义的要求修正：官方预设作为基础，保留可追溯原值；实际组件使用 COHESION 品牌主题。同时恢复既有动效参考的可查阅性，并修正暂停状态下有限动画的行为。
+
+本文只记录 2026-10-19 当时的实现与验证，不代表当前最新源码、依赖或构建状态。后续 Tailwind 接入见 [迁移记录](tailwind-migration-2026-10-19.md)，当前 Token 与镜像状态以仓库正式源和一致性检查为准。
 
 ## 色系来源与生成链
 
@@ -13,7 +15,7 @@
 3. `theme/create-shadcn-theme.mjs` 将共享结果映射到 shadcn 语义角色，保留其余 Neutral 基础。
 4. `scripts/generate-shadcn-tokens.mjs` 同时生成 `theme/shadcn-tokens.json` 与 `preview/shadcn/tokens.css`；`--check` 仅校验，不写入文件。
 
-当前每模式有 41 个语义／圆角变量。新增的状态角色用于实体主操作、链接三态和危险操作配对；不是用 Token 数量与 Ant Design 做一一对应。
+当时每模式有 41 个语义／圆角变量。新增的状态角色用于实体主操作、链接三态和危险操作配对；不是用 Token 数量与 Ant Design 做一一对应。
 
 ## 品牌角色与组件边界
 
@@ -52,7 +54,7 @@ pnpm test:brand
 pnpm test:motion
 ```
 
-当前最新构建的常规浏览器回归为 **26／26 通过**，包括每模式 41 个变量；`pnpm check` 通过。
+该轮最新构建的常规浏览器回归为 **26／26 通过**，包括每模式 41 个变量；当时的 `pnpm check` 通过。
 
 新增品牌回归为 **18／18 通过**，浏览器运行错误为 0，覆盖生成链与实际角色值、主操作／危险操作三态、链接、焦点、选中项、菜单 Home／End／方向键及 Escape 返回、Select Escape 返回。
 
@@ -60,6 +62,6 @@ pnpm test:motion
 
 本轮批量记录 9 张截图，公开代表视图为 [shadcn 深色组件](redesign-assets/brand-shadcn-dark-desktop.png)、[shadcn 手机浅色组件](redesign-assets/brand-shadcn-light-mobile.png) 与 [完整动效入口](redesign-assets/brand-motion-desktop.png)。原始测试与截图清单位于本地 `.impeccable/review/`，不作为预览站公开下载。
 
-独立审阅结论为 **ship**，无待修复的实质问题。审阅者逐张查看本轮 9 张截图，核对当前源码和全部 82 项行为记录；本轮检测结果为空。公开图片已带来源信息，文档内 11 张图片的来源扫描均无缺失。原始独立报告为 `.impeccable/review/brand-motion-finish-review.md`，仅供本地复核。
+独立审阅结论为 **ship**，无待修复的实质问题。审阅者逐张查看本轮 9 张截图，核对该轮源码和全部 82 项行为记录；本轮检测结果为空。公开图片已带来源信息，文档内 11 张图片的来源扫描均无缺失。原始独立报告为 `.impeccable/review/brand-motion-finish-review.md`，仅供本地复核。
 
 上一轮的 [局部主题与 shadcn 补齐记录](theme-isolation-and-shadcn-2026-10-19.md) 保留其历史结果和截图，其中的黑白预设与 32 个变量不代表当前品牌主题。当前检查只覆盖所记录的 Web 场景，不扩展为所有平台或辅助技术认证。

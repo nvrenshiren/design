@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" fill="none">
+  <defs>
+    <radialGradient id="field-glow" cx="72%" cy="47%" r="52%">
+      <stop offset="0" stop-color="#17A4BD" stop-opacity=".12"/>
+      <stop offset=".48" stop-color="#42A136" stop-opacity=".045"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="field-line" x1="290" y1="410" x2="675" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17A4BD"/>
+      <stop offset=".48" stop-color="#B1C640"/>
+      <stop offset="1" stop-color="#42A136"/>
+    </linearGradient>
+    <linearGradient id="field-ring" x1="364" y1="101" x2="680" y2="395" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17A4BD"/>
+      <stop offset=".55" stop-color="#B1C640"/>
+      <stop offset="1" stop-color="#42A136"/>
+    </linearGradient>
+  </defs>
+  <circle cx="548" cy="266" r="222" fill="url(#field-glow)"/>
+  <g stroke="url(#field-ring)" stroke-linecap="round">
+    <ellipse cx="548" cy="266" rx="188" ry="104" transform="rotate(-25 548 266)" opacity=".18"/>
+    <ellipse cx="548" cy="266" rx="242" ry="145" transform="rotate(24 548 266)" opacity=".13"/>
+    <ellipse cx="548" cy="266" rx="145" ry="242" transform="rotate(54 548 266)" opacity=".1"/>
+    <path d="M356 141c49 44 95 79 153 125m0 0c55-64 104-103 168-125m-168 125c56 49 99 101 141 163m-141-163c-82 17-137 48-184 101" opacity=".25"/>
+    <path d="M421 79c73 55 129 116 169 187m0 0c-9 73-4 128 25 183m-25-183c65-22 111-52 149-95" opacity=".13"/>
+  </g>
+  <g fill="#fff" stroke="url(#field-line)" stroke-width="2">
+    <circle cx="356" cy="141" r="5"/>
+    <circle cx="509" cy="266" r="7"/>
+    <circle cx="677" cy="141" r="5"/>
+    <circle cx="650" cy="429" r="5"/>
+    <circle cx="325" cy="367" r="4"/>
+    <circle cx="421" cy="79" r="4"/>
+    <circle cx="615" cy="449" r="3"/>
+  </g>
+  <g stroke="#17A4BD" stroke-linecap="round" opacity=".28">
+    <path d="M509 244v-14m0 72v-14m-22-22h-14m72 0h-14"/>
+    <circle cx="509" cy="266" r="18" opacity=".55"/>
+  </g>
+</svg>

@@ -15,8 +15,8 @@ importers:
         specifier: 4.5.0
         version: 4.5.0
       antd:
-        specifier: 6.6.6
-        version: 6.6.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.6.8
+        version: 6.6.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -1368,8 +1368,8 @@ packages:
       three:
         optional: true
 
-  antd@6.6.6:
-    resolution: {integrity: sha512-+x4M755a6kyZyxkN2vpfm3HbYkyytPBPSncXHKPHU2ZPs3Z1ctrWwWApe/4ek4O0eUGKNFCpb461yficetktYQ==}
+  antd@6.6.8:
+    resolution: {integrity: sha512-e+hDj/0myqbLBn8UGS0dYhPROAENruNscWe4gzyTnwx7yTip7D72wJUNxtsTplPXwRM1Mo4tXNSgaSb3UmV3RQ==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -2835,7 +2835,7 @@ snapshots:
 
   animejs@4.5.0: {}
 
-  antd@6.6.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  antd@6.6.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@ant-design/colors': 8.0.1
       '@ant-design/cssinjs': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

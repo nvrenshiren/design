@@ -53,8 +53,8 @@ function SelectTrigger({
 function SelectContent({
   className,
   children,
-  position = "item-aligned",
-  align = "center",
+  position = "popper",
+  align = "start",
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   const portalContainer = useShadcnPortalContainer()
@@ -64,7 +64,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "sc:relative sc:z-50 sc:max-h-(--radix-select-content-available-height) sc:min-w-[8rem] sc:origin-(--radix-select-content-transform-origin) sc:overflow-x-hidden sc:overflow-y-auto sc:rounded-md sc:border sc:bg-popover sc:text-popover-foreground sc:shadow-md sc:data-[side=bottom]:slide-in-from-top-2 sc:data-[side=left]:slide-in-from-right-2 sc:data-[side=right]:slide-in-from-left-2 sc:data-[side=top]:slide-in-from-bottom-2 sc:data-[state=closed]:animate-out sc:data-[state=closed]:fade-out-0 sc:data-[state=closed]:zoom-out-95 sc:data-[state=open]:animate-in sc:data-[state=open]:fade-in-0 sc:data-[state=open]:zoom-in-95",
+          "sc:z-50 sc:max-h-(--radix-select-content-available-height) sc:min-w-[8rem] sc:origin-(--radix-select-content-transform-origin) sc:overflow-x-hidden sc:overflow-y-auto sc:rounded-md sc:border sc:bg-popover sc:text-popover-foreground sc:shadow-md sc:data-[side=bottom]:slide-in-from-top-2 sc:data-[side=left]:slide-in-from-right-2 sc:data-[side=right]:slide-in-from-left-2 sc:data-[side=top]:slide-in-from-bottom-2 sc:data-[state=closed]:animate-out sc:data-[state=closed]:fade-out-0 sc:data-[state=closed]:zoom-out-95 sc:data-[state=open]:animate-in sc:data-[state=open]:fade-in-0 sc:data-[state=open]:zoom-in-95",
           position === "popper" &&
             "sc:data-[side=bottom]:translate-y-1 sc:data-[side=left]:-translate-x-1 sc:data-[side=right]:translate-x-1 sc:data-[side=top]:-translate-y-1",
           className

@@ -67,7 +67,7 @@ function ActionExamples() {
           <Dropdown menu={{ items: [
             { key: 'copy', label: '复制演示文档', icon: <CopyOutlined /> },
             { key: 'download', label: '导出 Markdown', icon: <DownloadOutlined /> },
-          ], onClick: ({ key }) => message.info(key === 'copy' ? '已创建演示副本' : '导出操作演示完成') }}>
+          ].map((item, index) => ({ ...item, className: 'cohesion-motion-menu-item', style: { '--cohesion-motion-delay': `${index * 24}ms` } })), onClick: ({ key }) => message.info(key === 'copy' ? '已创建演示副本' : '导出操作演示完成') }}>
             <Button icon={<MoreOutlined />} aria-label="更多文档操作" />
           </Dropdown>
           <Button onClick={() => message.info('预览已是当前示例的完整内容')}>预览</Button>
@@ -173,7 +173,7 @@ function FeedbackExamples() {
     <Example title="按任务选择反馈容器" description="短提示不打断工作；抽屉保留列表上下文；确认框保护有后果的操作。">
       <Space wrap><Button onClick={() => message.success('演示链接已复制')}>显示成功提示</Button><Button ref={drawerTrigger} onClick={() => setDrawer(true)}>打开详情抽屉</Button><Button onClick={() => modal.confirm({ title: '归档演示空间？', content: '空间成员将无法继续编辑，已发布内容不受影响。你可以稍后恢复空间。', okText: '归档空间', cancelText: '取消', onOk: () => message.success('演示空间已归档') })}>显示操作确认</Button></Space>
       <Drawer title="内容详情" size="min(480px, 100vw)" open={drawer} onClose={() => setDrawer(false)} afterOpenChange={open => { if (!open) requestAnimationFrame(restoreDrawerFocus); }} destroyOnHidden footer={<Button type="primary" onClick={() => setDrawer(false)}>完成查看</Button>}>
-        <Tag color="success">已发布</Tag><h2 className="ds-drawer-title tw:[font-size:24px] tw:leading-[1.45] tw:[letter-spacing:-.02em] tw:m-[20px_0_12px]">让团队的每次协作更清晰</h2><p className="ds-muted tw:[font-size:13px] tw:leading-[1.7] tw:text-[var(--ds-muted)]">此处展示演示内容。详情抽屉让用户查看信息时，仍能保留原列表的位置与筛选状态。</p><dl className="ds-detail-list tw:m-[28px_0] tw:[&>div]:grid tw:[&>div]:[grid-template-columns:90px_1fr] tw:[&>div]:gap-5 tw:[&>div]:p-[14px_0] tw:[&>div]:[border-bottom:1px_solid_var(--ds-example-border)] tw:[&_dt]:text-[var(--ds-example-muted)] tw:[&_dd]:m-0 tw:[&_dd]:[overflow-wrap:anywhere] tw:at-most-700:[&>div]:[grid-template-columns:76px_1fr] tw:at-most-700:[&>div]:gap-3"><div><dt>所属空间</dt><dd>品牌内容</dd></div><div><dt>创建人</dt><dd>周予</dd></div><div><dt>更新时间</dt><dd>2026-10-19 14:32</dd></div></dl>
+        <div className="cohesion-motion-dialog-content"><Tag color="success">已发布</Tag><h2 className="ds-drawer-title tw:[font-size:24px] tw:leading-[1.45] tw:[letter-spacing:-.02em] tw:m-[20px_0_12px]">让团队的每次协作更清晰</h2><p className="ds-muted tw:[font-size:13px] tw:leading-[1.7] tw:text-[var(--ds-muted)]">此处展示演示内容。详情抽屉让用户查看信息时，仍能保留原列表的位置与筛选状态。</p><dl className="ds-detail-list tw:m-[28px_0] tw:[&>div]:grid tw:[&>div]:[grid-template-columns:90px_1fr] tw:[&>div]:gap-5 tw:[&>div]:p-[14px_0] tw:[&>div]:[border-bottom:1px_solid_var(--ds-example-border)] tw:[&_dt]:text-[var(--ds-example-muted)] tw:[&_dd]:m-0 tw:[&_dd]:[overflow-wrap:anywhere] tw:at-most-700:[&>div]:[grid-template-columns:76px_1fr] tw:at-most-700:[&>div]:gap-3"><div><dt>所属空间</dt><dd>品牌内容</dd></div><div><dt>创建人</dt><dd>周予</dd></div><div><dt>更新时间</dt><dd>2026-10-19 14:32</dd></div></dl></div>
       </Drawer>
     </Example>
     <Example title="等待与空白都提供方向" description="骨架保留内容布局；空状态说明当前原因，并给出可执行的下一步。">

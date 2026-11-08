@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  Alert, Button, Collapse, Descriptions, Divider, Drawer, Flex, Modal,
+  Alert, Button, Card, Collapse, Descriptions, Divider, Drawer, Flex, Modal,
   Progress, Select, Space, Spin, Switch, Tabs, Tag, Typography,
   theme as antdTheme,
 } from 'antd';
@@ -15,6 +15,11 @@ import MotionReferences from './MotionReferences.jsx';
 
 const { Title, Paragraph, Text } = Typography;
 const motionDefaults = antdTheme.getDesignToken();
+const renderMotionOption = (option, { index }) => (
+  <span className="cohesion-motion-select-option" style={{ '--cohesion-motion-delay': `${Math.min(index, 5) * 18}ms` }}>
+    {option.label}
+  </span>
+);
 
 function DurationSample({ title, tokenName, description, active, enabled, token }) {
   const duration = token[tokenName];
@@ -80,7 +85,7 @@ function BrandExperiments({ theme, paused }) {
             { label: '编织', value: 'weaving' },
             { label: '创作', value: 'composing' },
             { label: '塑形', value: 'shaping' },
-          ]} />
+          ]} optionRender={renderMotionOption} />
         </section>
         <section className="ds-brand-experiment">
           <Title level={4}>边框光效</Title>
@@ -98,7 +103,7 @@ function BrandExperiments({ theme, paused }) {
             { label: '底边流光 · line', value: 'line' },
             { label: '外侧呼吸 · pulse-outside', value: 'pulse-outside' },
             { label: '内侧呼吸 · pulse-inner', value: 'pulse-inner' },
-          ]} />
+          ]} optionRender={renderMotionOption} />
         </section>
       </div>
     </div>
@@ -153,7 +158,7 @@ export default function MotionView({ theme = 'light', paused = false }) {
         <div className="ds-panel tw:p-6 tw:[border:1px_solid_var(--ds-line)] tw:rounded-[var(--ant-token-border-radius-lg,_8px)] tw:bg-[var(--ds-bg)] tw:min-w-0 tw:at-most-767:p-5">
           <Tabs animated={enabled} items={[
             { key: 'transition', label: '空间与层级', children: (
-              <div className="ds-split tw:grid tw:[grid-template-columns:repeat(2,minmax(0,1fr))] tw:gap-6 tw:at-most-767:[grid-template-columns:1fr]">
+              <div className="ds-split tw:grid tw:[grid-template-columns:repeat(3,minmax(0,1fr))] tw:gap-6 tw:at-most-900:[grid-template-columns:repeat(2,minmax(0,1fr))] tw:at-most-767:[grid-template-columns:1fr]">
                 <div>
                   <Title level={4}>保持上下文</Title>
                   <Paragraph type="secondary">对话框用于需要集中注意力的确认；抽屉用于保留当前页面的延伸任务。</Paragraph>
@@ -166,6 +171,10 @@ export default function MotionView({ theme = 'light', paused = false }) {
                   { key: 'detail', label: '展开一段辅助信息', children: <Paragraph className="tw:m-0!">内容沿所属区域自然展开，帮助用户理解信息关系。收起后恢复紧凑布局，页面位置保持连续。</Paragraph> },
                   { key: 'rules', label: '何时使用动效', children: <Paragraph className="tw:m-0!">解释状态、建立层级或反馈操作时使用。纯装饰的连续动画应保持少量，并允许用户暂停。</Paragraph> },
                 ]} />
+                <Card className="cohesion-motion-card" title="项目概览" extra={<Tag color="processing">进行中</Tag>}>
+                  <Paragraph type="secondary">悬停或键盘聚焦时轻微抬升，帮助识别可进入的内容卡片。</Paragraph>
+                  <Button type="link" icon={<RightOutlined />} iconPlacement="end">查看项目</Button>
+                </Card>
               </div>
             ) },
             { key: 'feedback', label: '等待与完成', children: (
@@ -202,16 +211,20 @@ export default function MotionView({ theme = 'light', paused = false }) {
       }]} />
 
       <Modal title="对话框动效" open={modalOpen} onCancel={() => setModalOpen(false)} onOk={() => setModalOpen(false)} okText="完成体验" cancelText="关闭" destroyOnHidden>
-        <Paragraph>对话框通过缩放与遮罩建立前后层级，让注意力集中在当前确认任务。</Paragraph>
-        <Paragraph type="secondary">按 Escape、点击遮罩或关闭按钮都可返回，焦点随后回到触发按钮。</Paragraph>
+        <div className="cohesion-motion-dialog-content">
+          <Paragraph>对话框通过缩放与遮罩建立前后层级，让注意力集中在当前确认任务。</Paragraph>
+          <Paragraph type="secondary">按 Escape、点击遮罩或关闭按钮都可返回，焦点随后回到触发按钮。</Paragraph>
+        </div>
       </Modal>
       <Drawer afterOpenChange={afterDrawerChange} title="抽屉动效" open={drawerOpen} onClose={() => setDrawerOpen(false)} size="min(420px, 100vw)" destroyOnHidden>
-        <Title level={4}>保留当前上下文</Title>
-        <Paragraph>抽屉从页面边缘进入，适合查看详情、编辑局部设置或完成与当前页面相关的延伸任务。</Paragraph>
-        <Descriptions bordered size="small" column={1} items={[
-          { key: 'duration', label: '过渡时长', children: <Text code>{token.motionDurationSlow}</Text> },
-          { key: 'motion', label: '动效偏好', children: enabled ? '标准动效' : '减少动效' },
-        ]} />
+        <div className="cohesion-motion-dialog-content">
+          <Title level={4}>保留当前上下文</Title>
+          <Paragraph>抽屉从页面边缘进入，适合查看详情、编辑局部设置或完成与当前页面相关的延伸任务。</Paragraph>
+          <Descriptions bordered size="small" column={1} items={[
+            { key: 'duration', label: '过渡时长', children: <Text code>{token.motionDurationSlow}</Text> },
+            { key: 'motion', label: '动效偏好', children: enabled ? '标准动效' : '减少动效' },
+          ]} />
+        </div>
       </Drawer>
     </div>
   );

@@ -9,6 +9,7 @@ const host = '127.0.0.1';
 const publicFiles = new Set([
   '/index.html', '/README.md', '/DESIGN.md', '/platforms.md',
   '/preview/app.js', '/preview/app.css', '/preview/tailwind.generated.css', '/preview/shadcn/tokens.css',
+  '/原色.png', '/白色.png', '/灰色.png',
 ]);
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',

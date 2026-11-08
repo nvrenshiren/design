@@ -1,6 +1,6 @@
 ---
 name: "COHESION 逐科设计系统"
-description: "以 Ant Design 6.6.6 与 shadcn/ui 官方基础映射共享 COHESION 品牌，为内容、工具与服务提供可复用的 Web 设计规范。"
+description: "以成熟 Web 组件基础映射共享 COHESION 品牌，为管理后台、C 端产品、商业页面与服务体验提供可复用的设计规范。"
 colors:
   primary: "#167c4b"
   primary-hover: "#2d8558"
@@ -78,24 +78,58 @@ components:
 
 ## Overview
 
-**Creative North Star: "专业、现代、多业务通用"**
+**Creative North Star: "专业、现代、有辨识度"**
 
-COHESION 逐科面向内容、工具与服务共用一套清晰、熟悉的界面语言。基础组件保持成熟产品 UI 的比例和操作预期；品牌保留原有 Logo 与固定三色，Ant Design 与 shadcn/ui 的主操作、选中、焦点和相关状态共同读取 COHESION 品牌语义。各业务按任务组织信息和布局。
+COHESION 逐科以鲜明而克制的品牌气质连接管理工具、C 端体验与商业页面。通过固定的 Logo 资产、语义主题、层次清晰的页面氛围、精确的信息排布和一致的交互反馈形成识别；成熟组件保留用户熟悉的比例和操作预期。各业务围绕自己的任务组织内容和布局，不复制同一套页面。
 
-两套实现分别采用真实 Ant Design 6.6.6 的 defaultAlgorithm、darkAlgorithm、compactAlgorithm，以及 shadcn/ui 的 new-york / neutral / Radix 源码组件与 Tailwind 4.3.3。各自字体、间距、圆角、控件高度、阴影和交互保留官方基础；品牌角色通过正式主题工厂统一派生，shadcn 的官方 Neutral 原值单独保留。系统字体是已确认的基础选择。
+两套实现分别采用真实 Ant Design 6.6.8 的 defaultAlgorithm、darkAlgorithm、compactAlgorithm，以及 shadcn/ui 的 new-york / neutral / Radix 源码组件与 Tailwind 4.3.3。各自字体、间距、圆角、控件高度、阴影和交互保留官方基础；品牌角色通过正式主题工厂统一派生，shadcn 的官方 Neutral 原值单独保留。系统字体是已确认的基础选择。
 
 **Key Characteristics:**
 
 - 双体系可见：Ant Design 与 shadcn/ui 分别提供真实组件、预设与接入入口。
 - 可追溯基础：两套体系共享品牌来源，运行时主题、CSS 与摘要可追溯到配置、工厂和官方源码。
-- 多业务共用：内容、工具与服务共享规则，按任务组合页面。
+- 多业务共用：后台、C 端与商业项目继承共同规则，按任务组合页面。
+- 品牌鲜明而克制：用固定识别、主题氛围、表面层级和交互细节形成整体气质，不让装饰压过任务。
 - 可控反馈：状态同时使用文字与视觉反馈，动效可暂停。
 
-头部仅摘录常用 token，不作为独立配置入口。未加前缀的既有键保持 Ant Design `light`／`comfortable` 语义，`dark-` 来自 `dark`；`shadcn-` 键摘录 COHESION 浅深主题。Ant Design 源为 [theme/cohesion-theme.json](theme/cohesion-theme.json) 与 `theme/create-theme.mjs`；[tokens/tokens.json](tokens/tokens.json) 保存完整快照，由 `scripts/generate-antd-tokens.mjs` 维护（536 token × 4 模式）。shadcn 官方基础保存在 [theme/shadcn-preset.json](theme/shadcn-preset.json)，`theme/create-shadcn-theme.mjs` 将共享品牌角色映射为每模式 41 个语义／圆角变量；`scripts/generate-shadcn-tokens.mjs` 同时生成 [theme/shadcn-tokens.json](theme/shadcn-tokens.json) 快照与 CSS。官方 CLI（4.22.0）、配置与适配记录在其中和 `components.json`，配置 style 为 `new-york`，Tailwind 4 实际解析 registry 为 `new-york-v4`。调整后同步摘要。
+## Scope, Brand, and Product Families
+
+COHESION 是逐科各类产品共同使用的设计语言与实施参考，覆盖管理后台、C 端产品、内容体验、服务流程和商业页面。目标是让这些产品在识别、品质和交互原则上属于同一产品家族，同时允许它们围绕各自用户和任务形成不同的页面表达。
+
+### 品牌核心与项目表达
+
+| 层级 | 跨项目约定 | 可按项目调整 |
+| --- | --- | --- |
+| 逐科自有产品 | COHESION 名称与 Logo 资产、Logo 三色的使用边界、语义化主题、信息层级、交互状态、焦点与减少动效规则 | 页面布局、导航结构、信息密度、内容模块、图像与装饰强度、适合业务的组件组合 |
+| 客户品牌商业项目 | 组件选型方法、语义映射方式、状态与可访问性原则、动效质量、响应式与跨端思路 | 客户的名称、Logo、品牌色、字体、文案语气和视觉素材；应映射到 COHESION 的语义角色，不直接套用逐科品牌资产 |
+
+COHESION 的统一感来自稳定的品牌资产与使用规则，也来自克制一致的色彩关系、表面层级、排版节奏、细节反馈和动效质量。品牌氛围可以随主题和页面变化，但 Logo 三色不替代正文、链接或功能状态色；背景光效、网格及其他装饰只强化层次，不降低内容对比度或承担状态表达。商业客户明确要求使用 COHESION 品牌时，再按项目约定应用品牌资产。
+
+### 产品类型与组件选择
+
+| 产品类型 | 优先目标 | 组件参考 | 组合重点 |
+| --- | --- | --- | --- |
+| 管理后台与内部工具 | 高效完成重复任务，快速比较与扫描信息 | 优先评估 Ant Design；既有产品栈或高度定制界面也可评估 shadcn/ui | 导航、表格、过滤、表单、批量操作、空/错/加载状态；按真实数据密度选择舒适或紧凑 |
+| C 端产品与服务 | 让用户理解价值、顺利完成关键路径并获得信任 | shadcn/ui 适合定制组合；Ant Design 也可用于需要成熟企业组件行为的服务流程 | 首页与内容节奏、清晰的单一主路径、移动触控、反馈和支持入口 |
+| 商业展示与客户项目 | 清楚传达定位、建立可信度并引导转化 | 按既有技术栈、定制程度、数据复杂度和团队维护能力选择一种基础 | 品牌叙事、证据内容、产品/服务说明、明确 CTA；客户品牌项目保留客户身份 |
+
+两套基础都可以服务多种产品类型。项目应在接入时选择一种主要组件体系，并在一个产品内保持一致；只有明确的技术、体验或迁移理由才跨体系组合。不要把“后台用 Ant Design、C 端用 shadcn/ui”变成硬性边界，也不要把 COHESION 误解为所有产品必须采用相同页面模板。
+
+### 新项目使用路径
+
+1. 确认品牌归属：逐科自有产品应用 COHESION 品牌；客户项目默认继承方法和组件质量规则，并映射客户自己的品牌。
+2. 确认产品类型、主要用户、关键任务、设备范围与信息密度。
+3. 选择主要组件基础，检查已有项目技术栈、组件需求和团队维护能力。
+4. 将品牌映射到正式语义 Token；按任务组合页面、组件、反馈和装饰，不逐页创造新的品牌色或基础比例。
+5. 对浅深主题、窄屏、键盘/触控、弹层、加载/错误/空状态、减少动效及目标平台做真实体验核对。
+
+当前仓库提供 Web 规范、Ant Design 与 shadcn/ui 主题和交互参考；原生 APP、小程序组件与 Token 转换仍由接入项目实现。跨平台复用的是品牌语义、信息意图和交互结果，具体控件形态遵循目标平台。
+
+头部仅摘录常用 token，不作为独立配置入口。未加前缀的既有键保持 Ant Design `light`／`comfortable` 语义，`dark-` 来自 `dark`；`shadcn-` 键摘录 COHESION 浅深主题。Ant Design 源为 [theme/cohesion-theme.json](theme/cohesion-theme.json) 与 `theme/create-theme.mjs`；[tokens/tokens.json](tokens/tokens.json) 保存完整快照，由 `scripts/generate-antd-tokens.mjs` 维护（536 token × 4 模式）。shadcn 官方基础保存在 [theme/shadcn-preset.json](theme/shadcn-preset.json)，`theme/create-shadcn-theme.mjs` 将共享品牌角色映射为每模式 41 个语义／圆角变量；`scripts/generate-shadcn-tokens.mjs` 同时生成 [theme/shadcn-tokens.json](theme/shadcn-tokens.json) 快照与 CSS。shadcn CLI（4.22.0）与 `retrievedAt` 是 2026-10-19 源码快照的获取记录，不是运行依赖或最新版本承诺；配置与适配记录在预设和 `components.json`，配置 style 为 `new-york`，Tailwind 4 实际解析 registry 为 `new-york-v4`。调整后同步摘要。
 
 [公开重设计记录](docs/design-system-redesign-2026-10-19.md) 保存 `ship` 终审结论、56 个组合、27 项通过的交互检查及 20 张截图的覆盖范围。代表视图见 [桌面概览](docs/redesign-assets/overview-desktop.png)、[手机概览](docs/redesign-assets/overview-mobile.png) 与 [深色组件](docs/redesign-assets/components-dark.png)。原始本地证据 `.impeccable/review/finish-review.md`、`.impeccable/review/browser-review-final.json` 不部署，不作为公共下载链接。
 
-[上一轮局部主题与 shadcn 记录](docs/theme-isolation-and-shadcn-2026-10-19.md) 保存当时独立 `ship` 结论、26 项回归通过、0 个浏览器运行错误及 9 张截图的审阅范围，包含当时的 32 个变量。其截图和黑白预设属于历史版本，不能证明后续品牌主题和动效修正已通过；当前实现与验证状态见[品牌主题与动效修正](docs/shadcn-brand-and-motion-2026-10-19.md)。
+[上一轮局部主题与 shadcn 记录](docs/theme-isolation-and-shadcn-2026-10-19.md) 保存当时独立 `ship` 结论、26 项回归通过、0 个浏览器运行错误及 9 张截图的审阅范围，包含当时的 32 个变量。其截图和黑白预设属于历史版本，不能证明后续品牌主题和动效修正已通过；10 月 19 日之后的 Tailwind 接入与验证范围见[迁移记录](docs/tailwind-migration-2026-10-19.md)，当前静态镜像核验见 [2026-11-03 一致性审计](docs/design-system-consistency-audit-2026-11-03.md)。
 
 上一轮品牌与动效修正已获独立 **ship** 结论：当时构建的常规（26 项）、品牌（18 项）和动效（38 项）回归共（82 项）通过，三份记录均无浏览器运行错误，`pnpm check` 通过。独立审阅逐张查看该轮（9 张）截图并核对源码；代表视图见 [shadcn 深色组件](docs/redesign-assets/brand-shadcn-dark-desktop.png)、[手机浅色组件](docs/redesign-assets/brand-shadcn-light-mobile.png)、[完整动效入口](docs/redesign-assets/brand-motion-desktop.png)。结论限于当时已记录的 Chromium Web 场景，不外推为完整 WCAG 或原生平台认证；本地报告为 `.impeccable/review/brand-motion-finish-review.md`。
 
@@ -123,7 +157,7 @@ Ant Design 容器、画布、浮层分别读取 `colorBgContainer`、`colorBgLay
 
 ### Brand assets and modes
 
-`logo-green`、`logo-lime`、`logo-cyan` 固定为现有 Logo 三色；图形与 COHESION／逐科名称保留。资产色不随主题改变，不新增界面语义；品牌实验可选择性使用三色。
+`logo-green`、`logo-lime`、`logo-cyan` 固定为现有 Logo 三色，不新增界面语义；品牌实验可选择性使用三色。设计系统外壳直接展示仓库根目录的 PNG 品牌资产：浅色背景用 `原色.png`，深色背景用 `白色.png`；`灰色.png` 留作满足对比度要求的单色品牌场景。
 
 Ant Design 模式：
 
@@ -170,6 +204,16 @@ shadcn 使用源码中的细边框、Card 轻阴影、Input／outline Button 的
 
 **The Depth Rule.** 内容区优先用表面、留白与分隔线组织；菜单、对话框和抽屉的前后关系使用官方浮层 token。
 
+## Canvas & Brand Atmosphere
+
+页面画布使用 `colorBgLayout`，卡片、导航和浮层使用各自的容器 Token。浅色画布可叠加低对比度的绿、青、柠檬色光晕与细网格，建立背景层次；深色模式沿用相同构图并降低亮度与饱和度。明暗装饰值集中在 `theme/cohesion-theme.json` 的 `canvasAtmosphere`，不混入组件状态 Token。装饰纹理不承载状态、分组或可点击语义，内容表面保持清晰、可读。
+
+**The Visual Signature Rule.** 科技感与高级感来自明确的排版层级、克制的品牌色、精细的材质和有目的的动态反馈，不靠全屏霓虹、过多玻璃面或重复发光边框。COHESION 绿承担品牌和主要操作，青色与柠檬色只用于小范围的高光、数据强调或品牌纹理。首页可使用更鲜明的标题、紧凑的技术标签、局部渐变和有序数字；业务内容保持安静。玻璃材质仅用于固定导航等薄层，面板和长文保持不透明、对比清楚。卡片只在需要表达可操作性或分组时形成独立表面，避免将每段内容都装入卡片。此规则参考 [Apple Human Interface Guidelines · Materials](https://developer.apple.com/design/human-interface-guidelines/materials)：材料用于区分前景导航与背景内容，避免在正文层滥用透明材质。
+
+连接线、节点和轨道可作为 COHESION 的辅助图形，在概览、空状态或品牌介绍等有空间的区域使用。优先选择轻量、静态的 SVG 或 CSS 图形，并提供纯色画布回退；纹理只放在页面画布层，高密度表格、表单和长文应位于清晰、不透明的内容表面上，也不在每个卡片内重复装饰。
+
+`dist/graphics/cohesion-field.svg` 是可选的连接场景素材，用于文档壳层和品牌介绍。它以固定 Logo 资产色绘制，属于装饰，不替代主色、链接或成功／警告／错误／信息语义。浅色与深色配对需要分别检查背景和前景；减少动效偏好下保持静态即可。
+
 ## Shapes
 
 Ant Design 控件采用轻圆角，默认、小型与容器半径来自 `borderRadius`／`borderRadiusSM`／`borderRadiusLG`，见头部 `rounded`。普通描边读取 `lineWidth`（1px）与语义边框色，键盘焦点保留可见轮廓和偏移。头像、开关等服从真实组件形态；移动演示外框、Logo 曲线与品牌光效属于局部表现。
@@ -189,6 +233,8 @@ shadcn/ui 的 27 个真实基础源码组件位于 `preview/shadcn/components/ui
 
 shadcn 页以“预设与 token／组件与状态／产品组合／Transitions 动效”四个页签展示真实交互：Button 包含主、outline、secondary、ghost、link 与危险 variants；Button／Badge 的实体状态读取品牌变量，Input 等控件保留清晰的实色焦点环（3px）和背景间隔（2px），错误使用 `aria-invalid` 与文字。Radix 负责 Dialog、AlertDialog、Select、DropdownMenu、Tooltip 等交互与焦点；场景为本地演示，偏好示例可保存到 localStorage。
 
+Radix Select 默认使用 `position="popper"` 与 `align="start"` 锚定触发器；内容类不添加 `sc:relative`，因为重要级 Tailwind 工具类会覆盖 Radix 的行内定位。Dialog／Select 锁定页面滚动时，`body[data-scroll-locked]` 按 `--removed-body-scroll-bar-size` 缩窄自身宽度，抵消视口滚动条隐藏后的扩张；不同时启用 `scrollbar-gutter: stable`，避免重复预留间距。
+
 Transitions 扩展位于 `preview/shadcn/transitions/`，包括（43 项）独立编写的 React 组件。它们参考 [Transitions.dev 的公开演示](https://transitions.dev/detail.html?t=card-resize)，含（32 项）Free 与（11 项）Pro 公开演示的自主实现，不复制其 recipe 或付费源码，也不声明为 shadcn/ui 官方组件。六类用途为布局与导航、浮层与通知、输入与操作、反馈与智能状态、数字与文本、视觉与交互；同一画廊可搜索、筛选、重放、暂停和深链定位，舞台只挂载当前真实组件，没有 iframe。组件复用现有语义颜色、尺寸、圆角及 Radix 规则。
 
 **The CSS First Rule.** 新增动效能用 CSS3 时优先采用过渡或关键帧；需要动态脚本补间时优先 Anime.js，状态与输入事件由 React 负责。
@@ -204,6 +250,12 @@ Pro 的图片、烟雾、彩屑分别位于 `pro-image.tsx`、`pro-smoke.tsx`、
 Radix 的 roving-focus、menu 与 focus-scope 在本预览构建中读取开放 ShadowRoot 内的实际焦点，修复 `document.activeElement` 只返回宿主时菜单 Home／方向键停在末项的问题。适配在 `scripts/radix-shadow-focus.mjs` 校验上游精确版本与替换位置；不修改安装包、浏览器原型或普通 DOM 行为。
 
 Ant Design 普通交互使用官方 `motionDurationFast`／`Mid`／`Slow`（100／200／300ms）与对应缓动，组件沿用各自 motion token。全局暂停和系统 `prefers-reduced-motion` 同时控制 `motion:false`、过渡与无限循环，包括 loading 图标、Spin、Skeleton 和品牌动效；文字与结果持续可见。动效不承载唯一信息。
+
+产品可选用 `theme/tailwind-cohesion-motion.mjs` 的实用配方：路由只重入内容区（240ms、8px）；Modal／Drawer 正文与组件原生空间转换同时开始轻入（220ms、8px）；Dropdown 与 Select 的短菜单项顺序淡入（180ms、每项间隔不超过 24ms，总延迟不超过 90ms）；明确可进入或含操作的卡片在 hover／focus-within 时上移 3px 并增加阴影。不要给长列表、数据表或每次筛选结果套逐项入场；筛选优先保持位置稳定并用局部状态反馈。页面动画只在 route key 变化时触发，过滤器、输入和选项变化不重播整页。
+
+实现参考 [Vercel Web Interface Guidelines](https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md) 对可见焦点、减少动效与高性能 transform／opacity 动画的建议；所有配方均有键盘聚焦和减少动效边界。
+
+自定义动画遵守同一减少动效边界：系统 `prefers-reduced-motion` 会关闭配方；用户级暂停时，在根节点设 `data-motion="reduced"`。其余内容直接呈现最终状态，不使用透明首帧、冻结中的退场或动画作为唯一反馈。菜单仅对短选项组错峰，键盘焦点、关闭与焦点返回继续由 Ant Design／Radix 管理。
 
 shadcn 保留 Tailwind 默认状态过渡（150ms）及源码浮层动效；局部 `stopped` 通过 `data-motion="paused"` 让循环静止，将有限动画的时长与延迟归零并完成，关闭过渡。系统减少动效采用相同的静态结果原则。Dialog 进入与退出都需完成，不能冻结透明首帧或阻止 Presence 卸载；焦点环和错误状态持续可见。
 

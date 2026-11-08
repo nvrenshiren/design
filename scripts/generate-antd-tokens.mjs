@@ -134,7 +134,9 @@ for (const [name] of Object.entries(primitive)) {
 const json = `${JSON.stringify(snapshot, null, 2)}\n`;
 const themeJson = await readFile(new URL('theme/cohesion-theme.json', root), 'utf8');
 const themeFactory = await readFile(new URL('theme/create-theme.mjs', root), 'utf8');
-for (const [path, expected] of [['tokens/tokens.css', css], ['tokens/tokens.json', json], ['dist/tokens/cohesion-tokens.css', css], ['dist/tokens/cohesion-tokens.json', json], ['dist/theme/cohesion-theme.json', themeJson], ['dist/theme/create-theme.mjs', themeFactory]]) {
+const motionRecipes = await readFile(new URL('theme/cohesion-motion.mjs', root), 'utf8');
+const motionPlugin = await readFile(new URL('theme/tailwind-cohesion-motion.mjs', root), 'utf8');
+for (const [path, expected] of [['tokens/tokens.css', css], ['tokens/tokens.json', json], ['dist/tokens/cohesion-tokens.css', css], ['dist/tokens/cohesion-tokens.json', json], ['dist/theme/cohesion-theme.json', themeJson], ['dist/theme/create-theme.mjs', themeFactory], ['dist/theme/cohesion-motion.mjs', motionRecipes], ['dist/theme/tailwind-cohesion-motion.mjs', motionPlugin]]) {
   const url = new URL(path, root);
   if (checkOnly) {
     let actual;

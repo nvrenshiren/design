@@ -12,6 +12,7 @@ import { layoutDemos } from "./layout"
 import { feedbackDemos } from "./feedback"
 import { effectsDemos } from "./effects"
 import type { TransitionDemoProps } from "./types"
+import { useShadcnTheme } from "../scope"
 
 const demos: Record<string, React.ComponentType<TransitionDemoProps>> = { ...layoutDemos, ...feedbackDemos, ...effectsDemos }
 for (const entry of TRANSITIONS) if (!demos[entry.id]) throw new Error(`Missing Transitions component: ${entry.id}`)
@@ -22,6 +23,7 @@ function readSelected() {
 }
 
 export function TransitionsGallery({ stopped = false }: { stopped?: boolean }) {
+  const mode = useShadcnTheme()
   const [selected, setSelected] = React.useState(readSelected)
   const [category, setCategory] = React.useState("all")
   const [query, setQuery] = React.useState("")
@@ -37,6 +39,12 @@ export function TransitionsGallery({ stopped = false }: { stopped?: boolean }) {
     `${item.title} ${item.englishTitle} ${item.description} ${item.primitive}`.toLowerCase().includes(query.trim().toLowerCase()))
   const paused = stopped || localPaused || !onscreen
   const example = `import { ${entry.exportName} } from "@/transitions/${entry.module}"\n\nexport function Example() {\n  return <${entry.exportName} stopped={false} replayKey={0} />\n}`
+  const indexSurfaceClasses = mode === "light"
+    ? "sc:rounded-[16px] sc:border sc:[border-color:color-mix(in_srgb,var(--border)_58%,transparent)] sc:[background:color-mix(in_srgb,var(--muted)_38%,transparent)] sc:p-3"
+    : "sc:[border-right:1px_solid_var(--border)] sc:pr-6 sc:at-most-1199:pr-[18px] sc:at-most-900:[border-right:0] sc:at-most-900:[border-bottom:1px_solid_var(--border)] sc:at-most-900:p-[0_0_20px]"
+  const stageSurfaceClasses = mode === "light"
+    ? "sc:rounded-[14px] sc:[border-color:color-mix(in_srgb,var(--border)_58%,transparent)] sc:[background:radial-gradient(ellipse_at_15%_0%,_color-mix(in_srgb,var(--chart-2)_9%,transparent),_transparent_48%),radial-gradient(ellipse_at_95%_100%,_color-mix(in_srgb,var(--chart-3)_8%,transparent),_transparent_44%),color-mix(in_srgb,var(--muted)_65%,var(--background))]"
+    : "sc:rounded-lg sc:border-border sc:bg-muted"
 
   React.useEffect(() => {
     const update = () => { setSelected(readSelected()); setReplayKey(0) }
@@ -75,7 +83,7 @@ export function TransitionsGallery({ stopped = false }: { stopped?: boolean }) {
         <p>43 项交互扩展，参考 Transitions.dev 公开演示，以 shadcn/ui 组件和逐科语义主题独立实现。选择一个组件，直接操作或重放关键状态。</p>
       </div>
       <div className="sc-tr-workbench sc:grid sc:[grid-template-columns:240px_minmax(0,1fr)] sc:gap-8 sc:items-start sc:min-w-0 sc:at-most-1199:[grid-template-columns:210px_minmax(0,1fr)] sc:at-most-1199:gap-6 sc:at-most-900:[grid-template-columns:minmax(0,1fr)] sc:at-most-900:gap-7">
-        <aside className="sc-tr-index sc:min-w-0 sc:[border-right:1px_solid_var(--border)] sc:pr-6 sc:at-most-1199:pr-[18px] sc:at-most-900:[border-right:0] sc:at-most-900:[border-bottom:1px_solid_var(--border)] sc:at-most-900:p-[0_0_20px]" aria-label="Transitions 组件目录">
+        <aside className={`sc-tr-index sc:min-w-0 ${indexSurfaceClasses}`} aria-label="Transitions 组件目录">
           <FieldGroup className="sc-tr-filters sc:gap-[18px] sc:at-most-900:grid sc:at-most-900:[grid-template-columns:repeat(2,minmax(0,1fr))] sc:at-most-900:gap-4 sc:at-most-500:[grid-template-columns:minmax(0,1fr)]">
             <Field>
               <FieldLabel htmlFor="sc-tr-search">查找组件</FieldLabel>
@@ -127,7 +135,7 @@ export function TransitionsGallery({ stopped = false }: { stopped?: boolean }) {
             </div>
             <span className="sc-muted sc:text-muted-foreground sc:[font-size:13px] sc:leading-[1.65]" role="status">{paused ? "减少动效，保留状态变化" : "按需播放，可重复操作"}</span>
           </div>
-          <div ref={stage} className="sc-tr-stage sc:min-w-0 sc:min-h-[390px] sc:grid sc:items-center sc:justify-items-center sc:p-8 sc:border sc:border-border sc:rounded-lg sc:bg-muted sc:isolate sc:relative sc:[&_>_*]:max-w-full sc:[&_>_*]:min-w-0 sc:[&_img]:max-w-full sc:[&[data-motion-stopped]_*]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*]:[transition-delay:0s]! sc:[&[data-motion-stopped]_*::before]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*::before]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*::before]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*::before]:[transition-delay:0s]! sc:[&[data-motion-stopped]_*::after]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*::after]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*::after]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*::after]:[transition-delay:0s]! sc:at-most-1199:p-6 sc:at-most-500:min-h-[340px] sc:at-most-500:p-[20px_12px]" data-transition-demo={entry.id} data-motion-stopped={paused || undefined}>
+          <div ref={stage} className={`sc-tr-stage sc:min-w-0 sc:min-h-[390px] sc:grid sc:items-center sc:justify-items-center sc:p-8 sc:border sc:isolate sc:relative sc:[&_>_*]:max-w-full sc:[&_>_*]:min-w-0 sc:[&_img]:max-w-full sc:[&[data-motion-stopped]_*]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*]:[transition-delay:0s]! sc:[&[data-motion-stopped]_*::before]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*::before]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*::before]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*::before]:[transition-delay:0s]! sc:[&[data-motion-stopped]_*::after]:[animation-duration:0s]! sc:[&[data-motion-stopped]_*::after]:[animation-delay:0s]! sc:[&[data-motion-stopped]_*::after]:[transition-duration:0s]! sc:[&[data-motion-stopped]_*::after]:[transition-delay:0s]! sc:at-most-1199:p-6 sc:at-most-500:min-h-[340px] sc:at-most-500:p-[20px_12px] ${stageSurfaceClasses}`} data-transition-demo={entry.id} data-motion-stopped={paused || undefined}>
             <Demo key={entry.id} stopped={paused} replayKey={replayKey} />
           </div>
           <section className="sc-tr-usage sc:flex sc:flex-col sc:gap-3 sc:pt-[6px] sc:[&_h3]:m-0 sc:[&_h3]:[font-size:16px] sc:[&_pre]:m-0 sc:[&_pre]:overflow-x-auto sc:[&_pre]:p-[18px_20px] sc:[&_pre]:[font-size:12px] sc:[&_pre]:leading-[1.8] sc:[&_pre]:rounded-[calc(var(--radius)_-_2px)] sc:[&_pre]:text-foreground sc:[&_pre]:bg-muted sc:[&_code]:[overflow-wrap:anywhere] sc:at-most-500:[&_pre]:p-[14px]" aria-labelledby="sc-tr-usage-heading">

@@ -1,20 +1,30 @@
 # COHESION 逐科设计系统
 
-版本 **2.0.0**。面向内容、工具与服务的公司级设计系统，分别展示 **Ant Design 6.6.6** 与 **shadcn/ui new-york / neutral** 基础上的真实组件和 COHESION 品牌主题，提供主题、交互预览与可追溯的接入资源。
+版本 **2.0.0**。COHESION 是逐科后续产品的共同设计语言与实施参考，覆盖管理后台、C 端产品、服务体验及商业页面。系统展示 **Ant Design 6.6.8** 与 **shadcn/ui new-york / neutral** 基础上的真实组件、品牌主题、页面组合和动效，并提供可追溯的接入资源。
 
-系统沿用成熟组件库已经定义好的排版、尺寸、间距、圆角、层级和交互，在正式主题配置中维护品牌、状态和可读性定制。两套体系共享品牌语义，通过各自的正式主题入口映射到组件；官方预设作为基础保留。产品选定组件体系后，在内部保持一致。
+系统沿用成熟组件库已经定义好的排版、尺寸、间距、圆角、层级和交互，在正式主题配置中维护品牌、状态和可读性定制。逐科自有产品共享 COHESION 的识别、语义和体验质量标准；客户品牌商业项目复用选型、组件组合、状态与动效方法，同时保留客户自己的品牌资产。布局、密度、内容与装饰强度围绕任务调整，产品选定组件体系后在内部保持一致。
+
+## 用于哪些项目
+
+| 项目类型 | 首要体验目标 | 可优先参考 | 关键组合建议 |
+| --- | --- | --- | --- |
+| 管理后台、内部工具 | 快速扫描信息并完成高频任务 | Ant Design；按现有技术栈评估 shadcn/ui | 导航、表格、筛选、表单、批量操作和完整状态；密度按工作情境决定 |
+| C 端产品、服务体验 | 建立信任并让用户顺利完成关键路径 | shadcn/ui 定制组合；复杂服务流程也可评估 Ant Design | 内容节奏、明确主路径、移动触控、及时反馈与支持入口 |
+| 商业展示、客户项目 | 传达定位、提供可信证据并引导转化 | 按产品栈、定制程度、复杂度与维护能力选择一种体系 | 品牌叙事、产品/服务说明、客户素材和清楚的行动入口 |
+
+**新项目接入顺序：**先确认品牌归属与平台范围，再确认用户、任务和信息密度；随后选择组件基础，将品牌映射到正式语义 Token，组合场景模式，最后核对浅深主题、响应式、键盘/触控、状态和减少动效。逐科自有产品应用 COHESION 品牌；客户项目默认继承设计方法，不直接套用逐科 Logo 与品牌色，除非项目约定明确要求使用 COHESION 品牌。
 
 ## 内容与使用方式
 
 | 入口 | 内容 |
 | --- | --- |
-| 概览 | 系统原则、产品组合与统一的设计基础 |
+| 概览 | 品牌核心、三类产品方向、组件组合与主题基础 |
 | 色彩与主题 | 固定 Logo 资产色、功能语义色、浅深主题和官方预设对照 |
 | 字体与排版 | 正文、标题、辅助信息、数字和长内容的层级 |
 | 布局与层级 | 间距、密度、圆角、表面与信息分组 |
 | Ant Design 组件 | 操作、输入、导航、反馈和数据展示 |
 | shadcn/ui | 基于 Neutral 的 COHESION 浅深主题、真实源码组件、资料偏好产品组合与 43 项 Transitions 扩展 |
-| 场景模式 | 内容管理、账号设置、移动服务的可操作组合示例 |
+| 场景模式 | 内容管理、账号设置、移动服务与商业展示的可操作组合示例；项目类型导览见概览 |
 | 动效 | 官方时长与缓动、组件过渡、27 类原有参考、完整品牌预设 |
 | 工程接入 | 主题配置、Token 文件与分发资源 |
 
@@ -26,7 +36,7 @@
 
 以下数值来自锁定版本的 `theme.getDesignToken()`。主题算法会根据模式派生完整 Token；紧凑模式使用 `compactAlgorithm`，不会靠一组独立手写值模拟。
 
-| 基础 | Ant Design 6.6.6 默认 |
+| 基础 | Ant Design 6.6.8 默认 |
 | --- | --- |
 | 正文与辅助文字 | `fontSize: 14`、`fontSizeSM: 12` |
 | 标题 | `fontSizeHeading1: 38`、`Heading2: 30`、`Heading3: 24` |
@@ -47,7 +57,8 @@ Ant Design 配置入口是 [`theme/cohesion-theme.json`](theme/cohesion-theme.js
 
 | 项目 | 规则 |
 | --- | --- |
-| Logo 三色 | 固定 `#42A136`、`#B1C640`、`#17A4BD`，用于品牌资产与品牌实验 |
+| Logo 资产 | 固定 `#42A136`、`#B1C640`、`#17A4BD`；预览浅色用根目录 `原色.png`，深色用 `白色.png` |
+| 页面氛围 | `canvasAtmosphere` 集中维护明暗画布的低对比光晕与细网格；只作装饰，不承担状态语义 |
 | UI 主色与链接 | 浅色种子 `#167C4B`；深色种子 `#5CB889`；最终状态色由官方算法派生 |
 | 功能语义 | 成功、警告、错误、信息保留官方语义家族，不能因主色为绿而合并为同一用途 |
 | 可读性 | 在官方算法之后，对未达到配置阈值的正文、占位符、语义文字、实心按钮及主色浅填充做必要修正 |
@@ -61,10 +72,12 @@ Logo 色不直接充当正文、链接和操作状态色。深色种子也不是
 
 入口为 `#shadcn`，包含“预设与 token”“组件与状态”“产品组合”“Transitions 动效”四个页签。采用官方 `@shadcn` registry、`new-york` 样式、`neutral` 基础与 Radix 交互，组件由 CLI `4.22.0` 加入源码。用户确认两套体系应表达同一品牌，因此当前页面使用 **COHESION 品牌主题**；官方 Neutral 原值单独保留用于溯源和对照。
 
+CLI `4.22.0` 是 2026-10-19 获取当前组件源码时的快照记录，不是运行时依赖或“最新版”声明；下面的固定版本命令用于重建相同来源。新项目采用其他 CLI 版本时，应检查 registry 输出与本地适配差异，再决定是否同步组件源码。
+
 - [`theme/shadcn-preset.json`](theme/shadcn-preset.json)：完整保留官方 Neutral 浅深预设、尺寸基准和来源。
 - `theme/create-shadcn-theme.mjs`：从共享 `theme/cohesion-theme.json` 派生品牌角色，再映射到 shadcn 的语义变量。
 - [`theme/shadcn-tokens.json`](theme/shadcn-tokens.json)：每模式 41 个语义／圆角变量的生成快照，不是手工配置入口。
-- `preview/shadcn/components/ui/`：27 个官方基础源码组件，保留其 variants；按钮和输入等增加 React 18 ref 兼容。本轮增加 Accordion、Collapsible、Avatar、InputGroup、Progress 和 Sonner。
+- `preview/shadcn/components/ui/`：27 个官方基础源码组件，保留其 variants；按钮和输入等增加 React 18 ref 兼容，当前包含 Accordion、Collapsible、Avatar、InputGroup、Progress 和 Sonner。
 - `preview/shadcn/transitions/`：43 项自主编写的 React 交互扩展，按用途分类，组合上述基础组件。
 - `preview/shadcn.css`：Tailwind 4.3.3 标准基础与语义映射，utility 使用 `sc:` 前缀。
 - `preview/foundation.tailwind.css`／`preview/tailwind.css`：`doc:` 低权重基线与 `tw:` 重要显式布局，合并生成 `preview/tailwind.generated.css`。自有普通样式写在工具类，静态动效和有序 `at-most-N` 断点由正式插件维护；[完整迁移与接入](docs/tailwind-migration-2026-10-19.md)。
@@ -140,7 +153,7 @@ node scripts/generate-antd-tokens.mjs --check
 安装与本仓库一致的依赖，把 `theme/` 复制到应用源码中。使用应用自己的 React 实例和构建工具；产品不需要加载本仓库预览的 React UMD 文件。
 
 ```sh
-pnpm add --save-exact antd@6.6.6 @ant-design/icons@6.3.4 react@18.3.1 react-dom@18.3.1
+pnpm add --save-exact antd@6.6.8 @ant-design/icons@6.3.4 react@18.3.1 react-dom@18.3.1
 ```
 
 ```jsx
@@ -184,7 +197,7 @@ export default function Product() {
 
 ## Ant Design Token 导出与自有组件
 
-React 组件内部优先通过 `theme.useToken()` 读取当前上下文。非 React 页面、自有 CSS 组件或跨技术栈交换可使用生成文件：
+React 组件内部优先通过 `theme.useToken()` 读取当前上下文。Tailwind 项目继续用工具类和 variants 维护自有布局；非 React 页面、非 Tailwind 的自有 CSS 组件或跨技术栈交换可使用生成文件：
 
 - [`tokens/tokens.css`](tokens/tokens.css)：官方 Token 的 `--ant-token-*` CSS 变量与旧版 `--color-*`、`--zk-*` 等兼容别名。
 - [`tokens/tokens.json`](tokens/tokens.json)：四种模式的官方基线、定制结果、差异与对比度检查记录。
@@ -213,6 +226,8 @@ React 组件内部优先通过 `theme.useToken()` 读取当前上下文。非 Re
 
 默认组件动效沿用官方 `100 / 200 / 300 ms` 与缓动预设：即时反馈快速、局部变化清晰、较大空间转换平稳。动效解释变化、层级和状态，结果同时通过文字或静态视觉表达。
 
+产品页面可选用 `theme/tailwind-cohesion-motion.mjs` 的四类配方：路由内容约 240ms 淡入并上移 8px；弹窗／抽屉正文约 220ms 轻入场；菜单与 Select 选项约 180ms 淡入并错开不超过 90ms；有明确操作的卡片悬停／键盘聚焦时上移 3px。只动画新进入的内容，不让整页反复晃动；密集列表、表格和长下拉菜单不做逐项错峰。Tailwind v4 在 CSS 入口注册 `@plugin "../theme/tailwind-cohesion-motion.mjs";`，产品源码按需添加 `.cohesion-motion-page`、`.cohesion-motion-dialog-content`、`.cohesion-motion-menu-item`、`.cohesion-motion-select-option` 或 `.cohesion-motion-card`。菜单项／选项的错峰通过 `--cohesion-motion-delay` 设置，建议每项不超过 24ms。
+
 系统开启减少动态效果或用户暂停时，Ant Design 主题使用 `motion: false`；shadcn 的独立作用域使有限出入场立即完成、循环静止并关闭过渡，避免弹窗冻结在透明首帧；预览同时停止额外的位移、加载旋转和品牌循环。连续动效不自动散布到所有内容区域。
 
 动效页的「组件动效参考」恢复原库全部 **27 类**，包含 15 个 JavaScript 控制器与 12 个 CSS 片段。一次只挂载一个独立 iframe 舞台，可选择、操作和重放；主题语义通过变量传入，原参考样式不覆盖 Ant Design 或 shadcn 组件。
@@ -226,6 +241,8 @@ React 组件内部优先通过 `theme.useToken()` 读取当前上下文。非 Re
 ```text
 theme/cohesion-theme.json             品牌、模式、可读性策略的配置入口
 theme/create-theme.mjs                Ant Design 算法组合与可读性扩展
+theme/cohesion-motion.mjs             页面、浮层、选项与卡片的产品级动效规则
+theme/tailwind-cohesion-motion.mjs    产品级动效规则的 Tailwind 插件
 theme/shadcn-preset.json              shadcn 官方 Neutral 原值与来源
 theme/create-shadcn-theme.mjs         共享品牌到 shadcn 语义角色的映射
 theme/shadcn-tokens.json              shadcn COHESION 品牌主题生成快照
